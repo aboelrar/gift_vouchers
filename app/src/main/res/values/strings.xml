@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">gift_vouchers</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="let_s_login">Let\'s Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="explore">Explore</string>
+    <string name="e_mail">E-mail</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="loading_c">Loading...</string>
+    <string name="get_voucher">Get Voucher</string>
+    <string name="gift_details">Gift Details</string>
+    <string name="gold">Gold</string>
+    <string name="silver">Silver</string>
+    <string name="platinum">platinum</string>
+    <string name="type">Type</string>
+    <string name="selected_price">Selected Price</string>
+    <string name="next">Next</string>
+    <string name="select_a_design_for_nyour_gift">Select a Design For\nYour Gift</string>
+    <string name="get_gift">Get Gift</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="cart">Cart</string>
+    <string name="my_gift_voutcher_s_details">My Gift Voutcher\'s Details</string>
+    <string name="my_gift_voutcher_s_card_details">My Gift Voutcher\'s Card Details</string>
+    <string name="check_out">Check Out</string>
+    <string name="checkout">Checkout</string>
+    <string name="reciever_info">Reciever Info</string>
+    <string name="full_name">Full name</string>
+    <string name="e_mail_address">E-mail address</string>
+    <string name="pick_a_date">pick a date</string>
+    <string name="day">day</string>
+    <string name="month">month</string>
+    <string name="year">Year</string>
+    <string name="write_a_congratulatory_message_if_you_want">Write a congratulatory message if you want</string>
+    <string name="select_payment_method">Select Payment Method</string>
+    <string name="visa_card">Visa Card</string>
+    <string name="apple_pay">Apple Pay</string>
+    <string name="card_number">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="card_verification_code">Card Verification Code</string>
+    <string name="code">code</string>
+    <string name="confirm">Confirm</string>
+    <string name="great_your_gift_has_been_sent">Great, Your Gift Has Been Sent</string>
+    <string name="my_order_s">My Order\'s</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="verify_your_email">Verify your email</string>
+    <string name="resend_code"><u>Resend Code</u></string>
+</resources>

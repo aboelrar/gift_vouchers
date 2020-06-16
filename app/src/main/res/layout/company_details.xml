@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".main_screen.ui.details.ui.company_details">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_160sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_100sdp"
+                                android:gravity="right"
+                                android:weightSum="1">
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_100sdp"
+                                    android:layout_weight=".5"
+                                    android:src="@drawable/image_details_bg_one" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_100sdp"
+                                android:layout_alignParentBottom="true"
+                                android:gravity="bottom"
+                                android:weightSum="1">
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_100sdp"
+                                    android:layout_weight=".5"
+                                    android:src="@drawable/image_details_bg_one" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_130sdp"
+                                android:layout_centerInParent="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:layout_marginRight="@dimen/_15sdp"
+                                android:background="@drawable/image_details_bg_two"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Gift Voucher From\nSouq.com"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/_18sdp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/logo"
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/logo" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:paddingLeft="@dimen/_15sdp"
+                            android:text="About Souq"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_20sdp"
+                            android:justificationMode="inter_word"
+                            android:paddingLeft="@dimen/_20sdp"
+                            android:text="Souq.com is an English-Arabic language e-commerce platform, owned by Amazon, Inc.[3] It is the largest e-commerce platform in the Arab world.[4] On March 28, 2017, Amazon.com Inc. confirmed it would be acquiring Souq.com for $580 million.[5] On May 1, 2019, Souq.com UAE became known as Amazon.ae,[6] whilst the Saudi and Egyptian sites continue operating under the Souq.com brand."
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:paddingLeft="@dimen/_15sdp"
+                            android:text="@string/gift_details"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_15sdp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:paddingLeft="@dimen/_20sdp"
+                                android:text="@string/type"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:text="*"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+                            android:id="@+id/gift_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_20sdp"
+                            android:gravity="center"
+                            app:borderColor="@android:color/black"
+                            app:borderWidth="0dp"
+                            app:position="0"
+                            app:radius="@dimen/_5sdp">
+
+                            <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_weight=".85"
+                                android:background="@drawable/unsecleted_gold"
+                                app:drawableGravity="left"
+                                app:selectedBackground="@drawable/selected_gold"
+                                app:selectedButtonRadius="@dimen/_7sdp"
+                                app:selectedTextColor="@android:color/black"
+                                app:text="@string/gold"
+                                app:textColor="@android:color/black"
+                                app:textSize="@dimen/_13sdp" />
+
+                            <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginLeft="@dimen/_7sdp"
+                                android:layout_weight=".85"
+                                android:background="@drawable/unselected_silver"
+                                app:drawableGravity="left"
+                                app:selectedBackground="@drawable/selected_silver"
+                                app:selectedTextColor="@android:color/black"
+                                app:text="@string/silver"
+                                app:textColor="@android:color/black"
+                                app:textSize="@dimen/_13sdp" />
+
+                            <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginLeft="@dimen/_7sdp"
+                                android:layout_weight=".85"
+                                android:background="@drawable/unselected_platinum"
+                                app:drawableGravity="left"
+                                app:selectedBackground="@drawable/selected_paltinum"
+                                app:selectedTextColor="@android:color/black"
+                                app:text="@string/platinum"
+                                app:textColor="@android:color/black"
+                                app:textSize="@dimen/_13sdp" />
+
+
+                        </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:paddingLeft="@dimen/_20sdp"
+                                android:text="@string/selected_price"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:text="*"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+                            android:id="@+id/price_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_60sdp"
+                            android:gravity="center"
+                            app:borderColor="@android:color/black"
+                            app:borderWidth="0dp"
+                            app:position="0"
+                            app:radius="@dimen/_5sdp">
+
+                            <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_weight=".35"
+                                android:background="@drawable/unselected_price"
+                                app:drawableGravity="left"
+                                app:selectedBackground="@drawable/selected_price"
+                                app:selectedButtonRadius="@dimen/_7sdp"
+                                app:selectedTextColor="@android:color/black"
+                                app:text="100"
+                                app:textColor="@android:color/black"
+                                app:textSize="@dimen/_13sdp" />
+
+                            <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_weight=".35"
+                                android:background="@drawable/unselected_price"
+                                app:drawableGravity="left"
+                                app:selectedBackground="@drawable/selected_price"
+                                app:selectedTextColor="@android:color/black"
+                                app:text="350"
+                                app:textColor="@android:color/black"
+                                app:textSize="@dimen/_13sdp" />
+
+                            <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_weight=".35"
+                                android:background="@drawable/unselected_price"
+                                app:drawableGravity="left"
+                                app:selectedBackground="@drawable/selected_price"
+                                app:selectedTextColor="@android:color/black"
+                                app:text="350"
+                                app:textColor="@android:color/black"
+                                app:textSize="@dimen/_13sdp" />
+
+                            <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_weight=".35"
+                                android:background="@drawable/unselected_price"
+                                app:drawableGravity="left"
+                                app:selectedBackground="@drawable/selected_price"
+                                app:selectedTextColor="@android:color/black"
+                                app:text="1000"
+                                app:textColor="@android:color/black"
+                                app:textSize="@dimen/_13sdp" />
+
+
+                        </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:gravity="center|left"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:paddingLeft="@dimen/_20sdp"
+                                android:text="add other price"
+                                android:layout_gravity="top"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:text="*"
+                                android:layout_gravity="top"
+                                android:textColor="@android:color/holo_red_dark"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+                            <EditText
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginLeft="@dimen/_20sdp"
+                                android:hint="price"
+                                android:textSize="@dimen/_11sdp"
+                                android:textColor="@android:color/black"
+                                android:paddingLeft="@dimen/_5sdp"
+                                android:background="@android:color/white"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_15sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".5"
+                                android:gravity="center|left">
+
+                                <ImageView
+                                    android:id="@+id/back"
+                                    android:layout_width="@dimen/_38sdp"
+                                    android:layout_height="@dimen/_38sdp"
+                                    android:layout_gravity="center|left"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:background="@drawable/auth_button_bg"
+                                    android:padding="@dimen/_9sdp"
+                                    android:src="@drawable/back_one" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".5"
+                                android:gravity="center|right"
+                                android:paddingRight="@dimen/_15sdp">
+
+                                <Button
+                                    android:id="@+id/next"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_35sdp"
+                                    android:background="@drawable/next_page"
+                                    android:text="@string/next"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_marginRight="@dimen/_10sdp"
+                                    android:textAllCaps="false"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+
+            </FrameLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
