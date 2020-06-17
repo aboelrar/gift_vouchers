@@ -79,7 +79,7 @@ public class utils {
         //ADD FRAGMENT TO ACTIVITY
         Fragment home=fragment;
         ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction()
-          .replace(id, home ).commit();
+          .replace(id, home ).addToBackStack(null).commit();
     }
 
     /**

@@ -54,7 +54,7 @@ public class company_details extends Fragment {
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new utils().Replace_Fragment(new company_details(), R.id.frag, getContext());
+                getFragmentManager().popBackStackImmediate();
             }
         });
     }

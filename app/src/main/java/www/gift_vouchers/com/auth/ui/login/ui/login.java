@@ -72,6 +72,14 @@ public class login extends Fragment {
                 new utils().Replace_Fragment(new forget_pass(), R.id.frag, getContext());
             }
         });
+
+        //GO TO MAIN SCREEN
+        binding.explore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), MainActivity.class));
+            }
+        });
     }
 
 

@@ -22,8 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_weight=".05"
+                android:layout_weight=".08"
                 android:paddingLeft="@dimen/_15sdp"
                 android:text="@string/cart"
                 android:textColor="@android:color/black"
@@ -33,11 +32,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_weight=".05"
+                android:layout_weight=".08"
                 android:paddingLeft="@dimen/_15sdp"
                 android:text="@string/my_gift_voutcher_s_details"
-                android:textColor="#E1E1E1"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
 
@@ -118,11 +115,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_weight=".05"
                 android:paddingLeft="@dimen/_15sdp"
                 android:text="@string/my_gift_voutcher_s_card_details"
-                android:textColor="#E1E1E1"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
 
@@ -131,7 +127,7 @@
                 android:id="@+id/gift_img"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight=".4"
+                android:layout_weight=".38"
                 android:scaleType="fitXY"
                 android:src="@drawable/gift_img" />
 

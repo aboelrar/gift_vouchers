@@ -55,7 +55,7 @@ public class cart extends Fragment {
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new utils().Replace_Fragment(new select_design(), R.id.frag, getContext());
+                getFragmentManager().popBackStackImmediate();
             }
         });
     }

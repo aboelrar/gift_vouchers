@@ -46,5 +46,12 @@ public class pay extends Fragment {
                 loading.dialog(getContext(),R.layout.successful_login,.80);
             }
         });
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
     }
 }
