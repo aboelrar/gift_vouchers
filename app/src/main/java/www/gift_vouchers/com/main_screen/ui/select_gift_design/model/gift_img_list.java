@@ -2,10 +2,10 @@ package www.gift_vouchers.com.main_screen.ui.select_gift_design.model;
 
 public class gift_img_list {
     String id;
-    int gift_img;
+    String gift_img;
     boolean status = false;
 
-    public gift_img_list(String id, int gift_img) {
+    public gift_img_list(String id, String gift_img) {
         this.id = id;
         this.gift_img = gift_img;
     }
@@ -18,11 +18,11 @@ public class gift_img_list {
         this.id = id;
     }
 
-    public int getGift_img() {
+    public String getGift_img() {
         return gift_img;
     }
 
-    public void setGift_img(int gift_img) {
+    public void setGift_img(String gift_img) {
         this.gift_img = gift_img;
     }
 

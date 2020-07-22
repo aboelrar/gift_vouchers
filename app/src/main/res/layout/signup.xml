@@ -55,6 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_20sdp"
+                        android:imeOptions="actionDone"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginRight="@dimen/_20sdp"
                         android:backgroundTint="#d3d3d3"
@@ -74,7 +75,6 @@
                         android:backgroundTint="#d3d3d3"
                         android:drawableRight="@drawable/user"
                         android:hint="@string/username"
-                        android:paddingLeft="@dimen/_5sdp"
                         android:paddingRight="@dimen/_10sdp"
                         android:theme="@style/ThemeSpinner" />
 
@@ -85,8 +85,9 @@
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginRight="@dimen/_20sdp"
+                        android:imeOptions="actionDone"
                         android:backgroundTint="#d3d3d3"
-                        android:drawableRight="@drawable/lock"
+                        android:drawableRight="@drawable/email_address"
                         android:hint="@string/e_mail"
                         android:paddingLeft="@dimen/_5sdp"
                         android:paddingRight="@dimen/_10sdp" />
@@ -97,9 +98,11 @@
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_8sdp"
+                        android:inputType="number"
+                        android:imeOptions="actionDone"
                         android:layout_marginRight="@dimen/_20sdp"
                         android:backgroundTint="#d3d3d3"
-                        android:drawableRight="@drawable/lock"
+                        android:drawableRight="@drawable/phone"
                         android:hint="@string/phone_number"
                         android:paddingLeft="@dimen/_5sdp"
                         android:paddingRight="@dimen/_10sdp" />
@@ -112,6 +115,8 @@
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginRight="@dimen/_20sdp"
                         android:backgroundTint="#d3d3d3"
+                        android:inputType="textPassword"
+                        android:imeOptions="actionDone"
                         android:drawableRight="@drawable/lock"
                         android:hint="@string/password"
                         android:paddingLeft="@dimen/_5sdp"

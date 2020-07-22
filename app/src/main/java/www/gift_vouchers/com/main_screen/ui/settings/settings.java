@@ -78,5 +78,13 @@ public class settings extends Fragment {
                 new utils().Replace_Fragment(new contact_us(), R.id.frag, getContext());
             }
         });
+
+        //GO TO BACK
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
     }
 }

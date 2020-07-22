@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0F0F0"
+        tools:context=".main_screen.ui.MainActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/top_img"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="-50dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/right_img"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="-50dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/left_img"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-30dp"
+                android:layout_marginBottom="@dimen/_120sdp"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/tool_bar_company" />
+
+                <FrameLayout
+                    android:id="@+id/frag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_50sdp" />
+            </LinearLayout>
+
+            <include layout="@layout/bottom_navigation_company" />
+
+        </RelativeLayout>
+
+        <www.gift_vouchers.com.main_screen.ui.ScrimInsetsFrameLayout
+            android:id="@+id/scrimInsetsFrameLayout"
+            android:layout_width="@dimen/_210sdp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:elevation="10dp"
+            android:fitsSystemWindows="true"
+            app:insetForeground="#4000">
+
+            <fragment
+                android:id="@+id/fragment_drawer"
+                android:name="www.gift_vouchers.com.main_screen.ui.NavigationDrawerFragment"
+                android:layout_width="@dimen/_210sdp"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:layout="@layout/fragment_navigation_drawer" />
+
+        </www.gift_vouchers.com.main_screen.ui.ScrimInsetsFrameLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+</layout>

@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,13 +46,21 @@ public class compainies extends Fragment {
 
     //GET DATA
     void getData() {
-        ArrayList<companies_list> mylist = new ArrayList<>();
-        mylist.add(new companies_list("1", "Souq Gift Voucher online shopping", R.drawable.logo));
-        mylist.add(new companies_list("1", "Souq Gift Voucher online shopping", R.drawable.logo));
-        mylist.add(new companies_list("1", "Souq Gift Voucher online shopping", R.drawable.logo));
-        mylist.add(new companies_list("1", "Souq Gift Voucher online shopping", R.drawable.logo));
-        mylist.add(new companies_list("1", "Souq Gift Voucher online shopping", R.drawable.logo));
 
-        new utils_adapter().griddAdapters(binding.companiesList, new companies_adapter(getContext(), mylist), getContext(), 2);
+        //SEND DATA TO FACTORY
+        CompaniesModelView CompaniesModelView = new ViewModelProvider(compainies.this,
+                new CompaniesModelViewFactory(getContext())).get(CompaniesModelView.class);
+
+        //CALL METHOD THAT CALLING API
+        CompaniesModelView.get_data();
+
+        //SET DATA INTO ARRAYLIST
+        CompaniesModelView.MutableLiveData.observe(this, new Observer<ArrayList<companies_list>>() {
+            @Override
+            public void onChanged(ArrayList<companies_list> companies_lists) {
+                new utils_adapter().griddAdapters(binding.companiesList, new companies_adapter(getContext(), companies_lists), getContext(), 2);
+            }
+        });
+
     }
 }

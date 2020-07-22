@@ -102,12 +102,12 @@
                         android:background="@android:color/white"
                         android:hint="@string/username"
                         android:paddingLeft="@dimen/_7sdp"
-                        android:text="ahmed mohamed ali"
                         android:textSize="@dimen/_12sdp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -139,6 +139,7 @@
                         android:layout_marginRight="@dimen/_15sdp"
                         android:background="@android:color/white"
                         android:hint="@string/country"
+                        android:visibility="gone"
                         android:paddingLeft="@dimen/_7sdp"
                         android:text="mahmoud st ,Cairo, Egypt"
                         android:textSize="@dimen/_12sdp" />
@@ -178,7 +179,6 @@
                         android:background="@android:color/white"
                         android:hint="@string/e_mail"
                         android:paddingLeft="@dimen/_7sdp"
-                        android:text="taha@moloo.com"
                         android:textSize="@dimen/_12sdp" />
 
                     <LinearLayout
@@ -216,7 +216,6 @@
                         android:background="@android:color/white"
                         android:hint="@string/phone_number"
                         android:paddingLeft="@dimen/_7sdp"
-                        android:text="01141012485"
                         android:textSize="@dimen/_12sdp" />
 
                     <TextView

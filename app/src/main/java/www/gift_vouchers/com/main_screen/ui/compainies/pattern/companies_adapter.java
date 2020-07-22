@@ -1,6 +1,8 @@
 package www.gift_vouchers.com.main_screen.ui.compainies.pattern;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 
@@ -44,11 +54,37 @@ public class companies_adapter extends RecyclerView.Adapter<companies_adapter.vi
         holder.name.setText(mylist.get(position).getName());
         Glide.with(context).load(mylist.get(position).getLogo()).into(holder.logo);
 
+        //SHIMMER FOR IMAGES
+        Glide.with(context)
+                .load(mylist.get(position).getLogo())
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        holder.container.stopShimmerAnimation();
+                        return false;
+                    }
+                })
+                .into(holder.logo);
+
+
         //SET ON CLICK LISTNERS
         holder.go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new utils().Replace_Fragment(new company_details(), R.id.frag, context);
+                Fragment home = new company_details();
+                Bundle bundle = new Bundle();
+                bundle.putString("id", mylist.get(position).getId());
+                //set Fragmentclass Arguments
+                home.setArguments(bundle);
+
+                ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frag, home).addToBackStack(null).commit();
 
             }
         });
@@ -66,12 +102,16 @@ public class companies_adapter extends RecyclerView.Adapter<companies_adapter.vi
         TextView name;
         CircleImageView logo;
         ImageView go;
+        ShimmerFrameLayout container;
 
         public view_holder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
             logo = itemView.findViewById(R.id.logo);
             go = itemView.findViewById(R.id.go);
+
+            container = itemView.findViewById(R.id.container);
+            container.startShimmerAnimation();
 
         }
     }

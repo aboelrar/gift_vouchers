@@ -2,12 +2,12 @@ package www.gift_vouchers.com.main_screen.ui.myorders.model;
 
 public class my_order_list {
     String id;
-    int image;
+    String image;
     String name;
     String code;
     String price;
 
-    public my_order_list(String id, int image, String name, String code, String price) {
+    public my_order_list(String id, String image, String name, String code, String price) {
         this.id = id;
         this.image = image;
         this.name = name;
@@ -23,11 +23,11 @@ public class my_order_list {
         this.id = id;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

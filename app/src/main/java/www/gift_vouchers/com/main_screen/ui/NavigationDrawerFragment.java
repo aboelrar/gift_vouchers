@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -69,6 +70,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
 
     TextView logout;
     CircleImageView cri_img;
+    ImageView saroo, prize;
 
 
     @Override
@@ -111,12 +113,16 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         //DEFINE ALL VARS
         logout = view.findViewById(R.id.logout);
         cri_img = view.findViewById(R.id.cri_img);
+        saroo = view.findViewById(R.id.sarooh);
+        prize = view.findViewById(R.id.prize);
 
         //SET ON CLICK LISTNERS
         logout.setOnClickListener(this);
 
         //SET IMAGE
         Glide.with(getContext()).load(R.drawable.person).into(cri_img);
+        Glide.with(getContext()).load(R.drawable.saroee).into(saroo);
+        Glide.with(getContext()).load(R.drawable.mygift).into(prize);
 
 
         return view;
@@ -143,8 +149,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         List<NavigationItem> items = new ArrayList<NavigationItem>();
 
 
-        items.add(new NavigationItem(getResources().getString(R.string.orders),R.drawable.prize));
-        items.add(new NavigationItem(getResources().getString(R.string.settings),R.drawable.settings));
+        items.add(new NavigationItem(getResources().getString(R.string.orders), R.drawable.prize));
+        items.add(new NavigationItem(getResources().getString(R.string.settings), R.drawable.settings));
 
         return items;
     }
@@ -252,8 +258,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @SuppressLint("NewApi")
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.logout)
-        {
+        if (v.getId() == R.id.logout) {
             getContext().startActivity(new Intent(getContext(), auth.class));
         }
     }

@@ -39,7 +39,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:paddingLeft="@dimen/_15sdp"
                     android:text="@string/select_payment_method"
-                    android:textColor="#E1E1E1"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="@dimen/_20sdp"
                         android:layout_marginRight="@dimen/_50sdp"
-                        android:src="@drawable/visa" />
+                        android:src="@drawable/paypal" />
 
                     <ImageView
                         android:layout_width="@dimen/_35sdp"
@@ -62,7 +62,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="@dimen/_55sdp"
                         android:layout_marginRight="@dimen/_50sdp"
-                        android:src="@drawable/apple" />
+                        android:src="@drawable/visa" />
 
                     <RadioGroup
                         android:id="@+id/radiogroup"
@@ -71,16 +71,7 @@
                         android:layout_marginTop="@dimen/_15sdp">
 
                         <RadioButton
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:layout_marginRight="@dimen/_10sdp"
-                            android:layoutDirection="rtl"
-                            android:text="@string/visa_card"
-                            android:textSize="@dimen/_18sdp"
-                            android:textStyle="bold" />
-
-                        <RadioButton
+                            android:id="@+id/paypal"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_marginLeft="@dimen/_10sdp"
@@ -90,102 +81,21 @@
                             android:textSize="@dimen/_18sdp"
                             android:textStyle="bold" />
 
+                        <RadioButton
+                            android:id="@+id/visa"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layoutDirection="rtl"
+                            android:text="@string/visa_card"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+
                     </RadioGroup>
                 </RelativeLayout>
 
-                <EditText
-                    android:id="@+id/card_num"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:inputType="number"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:background="@android:color/white"
-                    android:hint="@string/card_number"
-                    android:paddingLeft="@dimen/_7sdp"
-                    android:textSize="@dimen/_12sdp" />
 
-                <EditText
-                    android:id="@+id/holder_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:background="@android:color/white"
-                    android:hint="Card holder's Name"
-                    android:paddingLeft="@dimen/_7sdp"
-                    android:textSize="@dimen/_12sdp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="@dimen/_20sdp"
-                    android:paddingRight="@dimen/_20sdp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|left"
-                        android:text="@string/expiry_date"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <EditText
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_marginLeft="@dimen/_35sdp"
-                        android:layout_marginRight="@dimen/_15sdp"
-                        android:background="@android:color/white"
-                        android:hint="@string/month"
-                        android:inputType="number"
-                        android:gravity="center"
-                        android:textSize="@dimen/_12sdp" />
-
-                    <EditText
-                        android:layout_width="@dimen/_60sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_marginRight="@dimen/_15sdp"
-                        android:background="@android:color/white"
-                        android:hint="@string/year"
-                        android:inputType="number"
-                        android:gravity="center"
-                        android:textSize="@dimen/_12sdp" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="@dimen/_20sdp"
-                    android:paddingRight="@dimen/_20sdp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|left"
-                        android:text="@string/card_verification_code"
-                        android:textSize="@dimen/_12sdp" />
-
-
-                    <EditText
-                        android:layout_width="@dimen/_60sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_marginRight="@dimen/_15sdp"
-                        android:background="@android:color/white"
-                        android:hint="@string/code"
-                        android:inputType="number"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:gravity="center"
-                        android:textSize="@dimen/_12sdp" />
-
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -229,8 +139,8 @@
                             android:layout_marginRight="@dimen/_10sdp"
                             android:background="@drawable/selected_price"
                             android:text="@string/confirm"
-                            android:textColor="@android:color/white"
                             android:textAllCaps="false"
+                            android:textColor="@android:color/white"
                             android:textSize="@dimen/_12sdp" />
 
 

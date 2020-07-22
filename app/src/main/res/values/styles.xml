@@ -23,4 +23,7 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="Animation">
+        <item name="android:windowEnterAnimation">@anim/anim</item>
+    </style>
 </resources>

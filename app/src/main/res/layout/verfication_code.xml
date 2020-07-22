@@ -1,74 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".auth.ui.verfication_code.verfication_code">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:src="@drawable/verfication_code"
-            android:layout_weight=".4"/>
-        <TextView
-            android:layout_weight=".1"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:text="@string/verify_your_email"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/_18sdp"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_weight=".11"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:paddingLeft="@dimen/_15sdp"
-            android:text="Please enter the 4 digit code send to\nmail@mail.com"
-            android:textColor="#E1E1E1"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold" />
+        android:background="#FDFDFE"
+        tools:context=".auth.ui.verfication_code.verfication_code">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".15"
-            android:gravity="center">
-            <EditText
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:background="@drawable/verifcation_code_item"/>
-            <EditText
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:background="@drawable/verifcation_code_item"/>
-            <EditText
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:background="@drawable/verifcation_code_item"/>
-            <EditText
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:background="@drawable/verifcation_code_item"/>
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="1">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".38"
+                android:src="@drawable/verfication_code" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".1"
+                android:text="@string/verify_your_email"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".11"
+                android:gravity="center"
+                android:paddingLeft="@dimen/_15sdp"
+                android:text="Please enter the 4 digit code send to\nmail@mail.com"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".15"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/edit_1"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/verifcation_code_item"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1" />
+
+                <EditText
+                    android:id="@+id/edit_2"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:background="@drawable/verifcation_code_item"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1" />
+
+                <EditText
+                    android:id="@+id/edit_3"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:background="@drawable/verifcation_code_item"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1" />
+
+                <EditText
+                    android:id="@+id/edit_4"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:background="@drawable/verifcation_code_item"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/send"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="0dp"
+                android:layout_weight=".08"
+                android:background="@drawable/next_page"
+                android:text="@string/send"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:id="@+id/resend_code"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".1"
+                android:gravity="center"
+                android:text="@string/resend_code"
+                android:textColor="#0E4FFF"
+                android:textSize="@dimen/_13sdp" />
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight=".1"
-            android:text="@string/resend_code"
-            android:textColor="#0E4FFF"
-            android:textSize="@dimen/_13sdp"/>
-    </LinearLayout>
 
-</FrameLayout>
+    </FrameLayout>
+</layout>

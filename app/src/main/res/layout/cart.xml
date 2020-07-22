@@ -7,182 +7,200 @@
 
     </data>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".main_screen.ui.cart.cart">
+        android:layout_height="match_parent">
 
-
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="1">
+            tools:context=".main_screen.ui.cart.cart">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight=".08"
-                android:paddingLeft="@dimen/_15sdp"
-                android:text="@string/cart"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/_17sdp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight=".08"
-                android:paddingLeft="@dimen/_15sdp"
-                android:text="@string/my_gift_voutcher_s_details"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginRight="@dimen/_15sdp"
-                android:layout_weight=".3"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_3sdp">
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Souq Gift Voucher"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_17sdp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/logo"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:src="@drawable/logo" />
-
-                        <TextView
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="@dimen/_35sdp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:background="@drawable/unsecleted_gold"
-                            android:gravity="center"
-                            android:text="@string/gold"
-                            android:textColor="@android:color/white"
-                            android:textSize="@dimen/_12sdp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="@dimen/_45sdp"
-                            android:layout_height="@dimen/_35sdp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:background="@drawable/selected_price"
-                            android:gravity="center"
-                            android:text="100\nSAR"
-                            android:textColor="@android:color/white"
-                            android:textSize="@dimen/_10sdp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="@dimen/_25sdp"
-                            android:layout_height="@dimen/_25sdp"
-                            android:layout_marginLeft="@dimen/_20sdp"
-                            android:gravity="center"
-                            android:src="@drawable/trash"
-                            android:textColor="@android:color/white"
-                            android:textSize="@dimen/_10sdp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_weight=".05"
-                android:paddingLeft="@dimen/_15sdp"
-                android:text="@string/my_gift_voutcher_s_card_details"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold" />
-
-
-            <ImageView
-                android:id="@+id/gift_img"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight=".38"
-                android:scaleType="fitXY"
-                android:src="@drawable/gift_img" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginBottom="@dimen/_15sdp"
-                android:layout_weight=".1"
-                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:weightSum="1">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".5"
-                    android:gravity="center|left">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight=".08"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:text="@string/cart"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="bold" />
 
-                    <ImageView
-                        android:id="@+id/back"
-                        android:layout_width="@dimen/_38sdp"
-                        android:layout_height="@dimen/_38sdp"
-                        android:layout_gravity="center|left"
-                        android:layout_marginLeft="@dimen/_20sdp"
-                        android:background="@drawable/auth_button_bg"
-                        android:padding="@dimen/_9sdp"
-                        android:src="@drawable/back_one" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight=".08"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:text="@string/my_gift_voutcher_s_details"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_weight=".3"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_3sdp">
 
-                </LinearLayout>
+                    <LinearLayout
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".5"
-                    android:gravity="center|right"
-                    android:paddingRight="@dimen/_15sdp">
-
-                    <Button
-                        android:id="@+id/checkout"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_marginRight="@dimen/_10sdp"
-                        android:background="@drawable/next_page"
-                        android:text="@string/check_out"
-                        android:textAllCaps="false"
-                        android:textSize="@dimen/_12sdp" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/cart_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_17sdp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/logo"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:src="@drawable/logo" />
+
+                            <TextView
+                                android:id="@+id/type"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:background="@drawable/unsecleted_gold"
+                                android:gravity="center"
+                                android:text="@string/gold"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/price"
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:background="@drawable/selected_price"
+                                android:gravity="center"
+                                android:text="100\nSAR"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/trashM"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_marginLeft="@dimen/_20sdp"
+                                android:gravity="center"
+                                android:src="@drawable/trash"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight=".05"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:text="@string/my_gift_voutcher_s_card_details"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
 
 
+                <ImageView
+                    android:id="@+id/gift_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".38"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/gift_img" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:layout_weight=".1"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="center|left">
+
+                        <ImageView
+                            android:id="@+id/back"
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_gravity="center|left"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:background="@drawable/auth_button_bg"
+                            android:padding="@dimen/_9sdp"
+                            android:src="@drawable/back_one" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="center|right"
+                        android:paddingRight="@dimen/_15sdp">
+
+                        <Button
+                            android:id="@+id/checkout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:background="@drawable/next_page"
+                            android:text="@string/check_out"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </LinearLayout>
                 </LinearLayout>
+
+
             </LinearLayout>
 
+        </FrameLayout>
 
-        </LinearLayout>
-
-    </FrameLayout>
+        <TextView
+            android:id="@+id/cart_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/cart_is_empty"
+            android:textSize="@dimen/_16sdp"
+            android:visibility="gone" />
+    </RelativeLayout>
 </layout>

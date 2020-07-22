@@ -1,10 +1,10 @@
 package www.gift_vouchers.com.main_screen.ui.compainies.model;
 
 public class companies_list {
-    String id,name;
-    int logo;
+    String id, name;
+    String logo;
 
-    public companies_list(String id, String name, int logo) {
+    public companies_list(String id, String name, String logo) {
         this.id = id;
         this.name = name;
         this.logo = logo;
@@ -26,11 +26,11 @@ public class companies_list {
         this.name = name;
     }
 
-    public int getLogo() {
+    public String getLogo() {
         return logo;
     }
 
-    public void setLogo(int logo) {
+    public void setLogo(String logo) {
         this.logo = logo;
     }
 }

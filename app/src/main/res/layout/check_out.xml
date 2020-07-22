@@ -39,7 +39,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:paddingLeft="@dimen/_15sdp"
                     android:text="All Most Done...Please Fill These\nFileds"
-                    android:textColor="#E1E1E1"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
 

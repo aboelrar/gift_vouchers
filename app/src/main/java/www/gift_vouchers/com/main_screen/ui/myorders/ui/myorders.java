@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,9 @@ import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.MyordersBinding;
 import www.gift_vouchers.com.main_screen.ui.compainies.model.companies_list;
 import www.gift_vouchers.com.main_screen.ui.compainies.pattern.companies_adapter;
+import www.gift_vouchers.com.main_screen.ui.compainies.ui.CompaniesModelView;
+import www.gift_vouchers.com.main_screen.ui.compainies.ui.CompaniesModelViewFactory;
+import www.gift_vouchers.com.main_screen.ui.compainies.ui.compainies;
 import www.gift_vouchers.com.main_screen.ui.myorders.model.my_order_list;
 import www.gift_vouchers.com.main_screen.ui.myorders.pattern.myorders_adapter;
 import www.gift_vouchers.com.utils.utils_adapter;
@@ -47,14 +52,22 @@ public class myorders extends Fragment {
 
     //GET DATA
     void getData() {
-        ArrayList<my_order_list> mylist = new ArrayList<>();
-        mylist.add(new my_order_list("1", R.drawable.logo, "Souq Gift Voucher", "0ad4eaxfpls", "100 SAR"));
-        mylist.add(new my_order_list("1", R.drawable.logo, "Souq Gift Voucher", "0ad4eaxfpls", "100 SAR"));
-        mylist.add(new my_order_list("1", R.drawable.logo, "Souq Gift Voucher", "0ad4eaxfpls", "100 SAR"));
-        mylist.add(new my_order_list("1", R.drawable.logo, "Souq Gift Voucher", "0ad4eaxfpls", "100 SAR"));
 
+        //SEND DATA TO FACTORY
+        MyOrdersModelView MyOrdersModelView = new ViewModelProvider(myorders.this,
+                new MyOrdersModelViewFactory(getContext())).get(MyOrdersModelView.class);
 
-        new utils_adapter().Adapter(binding.myorderList, new myorders_adapter(getContext(), mylist), getContext());
+        //CALL METHOD THAT CALLING API
+        MyOrdersModelView.get_data();
+
+        //SET DATA INTO ARRAYLIST
+        MyOrdersModelView.MutableLiveData.observe(myorders.this, new Observer<ArrayList<my_order_list>>() {
+            @Override
+            public void onChanged(ArrayList<my_order_list> my_order_lists) {
+                new utils_adapter().Adapter(binding.myorderList, new myorders_adapter(getContext(), my_order_lists), getContext());
+
+            }
+        });
     }
 
 }

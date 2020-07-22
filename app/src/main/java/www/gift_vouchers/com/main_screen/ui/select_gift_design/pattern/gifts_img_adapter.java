@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import www.gift_vouchers.com.R;
+import www.gift_vouchers.com.local_data.send_data;
 import www.gift_vouchers.com.main_screen.ui.select_gift_design.model.gift_img_list;
 
 public class gifts_img_adapter extends RecyclerView.Adapter<gifts_img_adapter.view_holder> {
@@ -22,6 +23,7 @@ public class gifts_img_adapter extends RecyclerView.Adapter<gifts_img_adapter.vi
     Context context;
     ArrayList<gift_img_list> mylist;
     int last_position = 1000;
+    public static String choose_color = "0";
 
     public gifts_img_adapter(Context context, ArrayList<gift_img_list> mylist) {
         this.context = context;
@@ -45,26 +47,26 @@ public class gifts_img_adapter extends RecyclerView.Adapter<gifts_img_adapter.vi
         holder.getgift.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mylist.get(position).setStatus(true);
-                holder.getgift.setBackgroundResource(R.drawable.selected_gift);
-
-
-                //CHECK IF TRUE OR FALSE
-
-                if (last_position == 1000) {
-                } else if (mylist.get(last_position).isStatus() == false) {
-                    holder.getgift.setBackgroundResource(R.drawable.next_page);
-                }
-
                 //SET LAST POSITION FALSE
                 last_position = position;
-                mylist.get(last_position).setStatus(false);
+                notifyDataSetChanged();
+
+                //ADD DESIGN TO SQLLITE
+                send_data.set_design(context, mylist.get(position).getGift_img());
+
+                //SET COLOR
+                choose_color = "1";
+
 
             }
 
         });
 
-
+        if (last_position == position) {
+            holder.getgift.setBackgroundResource(R.drawable.selected_gift);
+        } else {
+            holder.getgift.setBackgroundResource(R.drawable.next_page);
+        }
 
 
     }

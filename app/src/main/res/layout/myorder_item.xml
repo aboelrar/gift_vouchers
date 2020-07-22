@@ -3,118 +3,126 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/previous_details_item"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_100sdp"
+    android:layout_height="@dimen/_70sdp"
     android:layout_marginLeft="@dimen/_15sdp"
     android:layout_marginRight="@dimen/_15sdp"
     android:layout_marginBottom="@dimen/_15sdp"
     app:cardCornerRadius="@dimen/_10sdp">
 
-    <LinearLayout
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight=".25"
-            android:gravity="center">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/logo"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/logo" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".45"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:weightSum="1">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".5"
-                android:orientation="vertical"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".25"
+                android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Souq Gift Voucher"
-                    android:id="@+id/name"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/_12sdp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_1sdp"
-                    android:text="01sjqj555dd"
-                    android:id="@+id/code"
-                    android:textSize="@dimen/_11sdp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/logo"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/logo" />
+
+
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".45"
                 android:orientation="vertical"
-                android:gravity="center"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp">
+                android:weightSum="1">
 
-                <Button
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_gravity="center|left"
-                    android:background="@drawable/selected_price"
-                    android:text="pending"
-                    android:textAllCaps="false"
-                    android:id="@+id/status"
-                    android:textColor="@android:color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
 
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Souq Gift Voucher"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:text="01sjqj555dd"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="0dp"-->
+                <!--                android:layout_weight=".5"-->
+                <!--                android:orientation="vertical"-->
+                <!--                android:gravity="center"-->
+                <!--                android:paddingTop="@dimen/_5sdp"-->
+                <!--                android:paddingBottom="@dimen/_5sdp">-->
+
+                <!--                <Button-->
+                <!--                    android:layout_width="@dimen/_70sdp"-->
+                <!--                    android:layout_height="@dimen/_25sdp"-->
+                <!--                    android:layout_gravity="center|left"-->
+                <!--                    android:background="@drawable/selected_price"-->
+                <!--                    android:text="pending"-->
+                <!--                    android:textAllCaps="false"-->
+                <!--                    android:id="@+id/status"-->
+                <!--                    android:textColor="@android:color/white" />-->
+
+                <!--            </LinearLayout>-->
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".3"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/_10sdp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:id="@+id/price"
-                android:text="100 SAR"
-                android:textColor="@color/t_color"
-                android:textSize="@dimen/_13sdp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center"
-                android:layout_weight=".5">
-                <ImageView
-                    android:layout_width="@dimen/_21sdp"
-                    android:layout_height="@dimen/_21sdp"
-                    android:src="@drawable/trash"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
-        </LinearLayout>
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".3"
+                android:orientation="vertical"
+                android:weightSum="1">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="100 SAR"
+                    android:textColor="@color/t_color"
+                    android:textSize="@dimen/_13sdp" />
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="0dp"-->
+                <!--                android:gravity="center"-->
+                <!--                android:layout_weight=".5">-->
+                <!--                <ImageView-->
+                <!--                    android:layout_width="@dimen/_21sdp"-->
+                <!--                    android:layout_height="@dimen/_21sdp"-->
+                <!--                    android:src="@drawable/trash"-->
+                <!--                    android:layout_gravity="center"/>-->
+                <!--            </LinearLayout>-->
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 </androidx.cardview.widget.CardView>

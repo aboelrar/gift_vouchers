@@ -4,16 +4,21 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.login.ui.login;
 import www.gift_vouchers.com.databinding.SelectDesignBinding;
+import www.gift_vouchers.com.local_data.send_data;
 import www.gift_vouchers.com.main_screen.ui.cart.cart;
 import www.gift_vouchers.com.main_screen.ui.details.ui.company_details;
 import www.gift_vouchers.com.main_screen.ui.select_gift_design.model.gift_img_list;
@@ -49,16 +54,27 @@ public class select_design extends Fragment {
         return view;
     }
 
+
     //GET DATA
     void getData() {
-        ArrayList<gift_img_list> mylist = new ArrayList<>();
-        mylist.add(new gift_img_list("1", R.drawable.gift_img));
-        mylist.add(new gift_img_list("1", R.drawable.gift_img));
 
+        //SEND DATA TO FACTORY
+        DesignsModelView DesignsModelView = new ViewModelProvider(select_design.this,
+                new DesignsModelViewFactory(getContext())).get(DesignsModelView.class);
 
-        new utils_adapter().Adapter(binding.giftList, new gifts_img_adapter(getContext(), mylist), getContext());
+        //CALL METHOD THAT CALLING API
+        DesignsModelView.get_data();
+
+        //SET DATA INTO ARRAYLIST
+        DesignsModelView.MutableLiveData.observe(this, new Observer<ArrayList<gift_img_list>>() {
+            @Override
+            public void onChanged(ArrayList<gift_img_list> gift_img_lists) {
+                binding.loading.setVisibility(View.GONE); //SET VISABILITY GONE
+                new utils_adapter().Adapter(binding.giftList, new gifts_img_adapter(getContext(), gift_img_lists), getContext());
+            }
+        });
+
     }
-
 
     //SET ON CLICK LISTNERS
     void click_listner() {
@@ -66,7 +82,17 @@ public class select_design extends Fragment {
         binding.next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new utils().Replace_Fragment(new cart(), R.id.frag, getContext());
+
+                if (gifts_img_adapter.choose_color.equals("1")) {
+                    send_data.check_card(getContext(), "1");
+                    new utils().Replace_Fragment(new cart(), R.id.frag, getContext());
+
+                    //SET IT ZERO
+                    gifts_img_adapter.choose_color = "0";
+                } else {
+                    Toasty.warning(getContext(), getString(R.string.select_design), Toasty.LENGTH_SHORT).show();
+                }
+
             }
         });
 

@@ -1,20 +1,36 @@
 package www.gift_vouchers.com.main_screen.ui;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.paytabs.paytabs_sdk.utils.PaymentParams;
 
+import java.io.File;
+import java.io.IOException;
+
+import es.dmoral.toasty.Toasty;
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.ActivityMainBinding;
 import www.gift_vouchers.com.main_screen.ui.cart.cart;
@@ -31,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
     ImageView menu;
     BottomNavigationView bottomNavigationView;
     ImageView settings;
+    public static File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +71,10 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
 
         check_fragment_bottom_nav();
 
+        //Glide images for backgrouns
+        Glide.with(MainActivity.this).load(R.drawable.masora).into(binding.topImg);
+        Glide.with(MainActivity.this).load(R.drawable.leftimg).into(binding.leftImg);
+        Glide.with(MainActivity.this).load(R.drawable.saroee).into(binding.rightImg);
 
 
     }
@@ -161,6 +182,32 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
             bottomNavigationView.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                Uri selectedImage = data.getData();
+                file = new File(getRealPathFromURI(selectedImage));
+                Toast.makeText(MainActivity.this, "sssss" + file, Toast.LENGTH_LONG).show();
+
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+    }
+
+    public String getRealPathFromURI(Uri uri) {
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+        return cursor.getString(idx);
     }
 
 }

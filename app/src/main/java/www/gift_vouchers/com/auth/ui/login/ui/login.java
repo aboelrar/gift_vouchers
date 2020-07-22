@@ -5,16 +5,21 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.forget_pass.ui.forget_pass;
 import www.gift_vouchers.com.auth.ui.signup.ui.signup;
 import www.gift_vouchers.com.databinding.LoginBinding;
-import www.gift_vouchers.com.main_screen.ui.MainActivity;
+
+import static www.gift_vouchers.com.utils.utils.yoyo;
+
+import www.gift_vouchers.com.main_screen_company.ui.Main_Activity_Company;
 import www.gift_vouchers.com.utils.utils;
 
 /**
@@ -23,6 +28,7 @@ import www.gift_vouchers.com.utils.utils;
 public class login extends Fragment {
 
     LoginBinding binding;
+    LoginModelView loginModelView;
 
     public login() {
         // Required empty public constructor
@@ -47,8 +53,7 @@ public class login extends Fragment {
 
 
     //SET ON CLICK LISTNERS
-    void click_listners()
-    {
+    void click_listners() {
         //SET CLICK LISTNERS BACK
         binding.signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +66,8 @@ public class login extends Fragment {
         binding.auth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), MainActivity.class));
+                //GO TO LOGIN
+                login_validation();
             }
         });
 
@@ -77,9 +83,41 @@ public class login extends Fragment {
         binding.explore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), MainActivity.class));
+                startActivity(new Intent(getContext(), Main_Activity_Company.class));
             }
         });
+    }
+
+
+    //LOGIN VAILDATION
+    void login_validation() {
+
+        if (binding.username.getText().toString().length() < 5)  //VALIDATION ON USERNAME
+        {
+            String username_val = getResources().getString(R.string.user_val);
+            binding.username.setError(username_val);
+            yoyo(R.id.username, binding.username);
+        } else if (binding.password.getText().toString().length() < 6)  //VALIDATION ON PASSWORD
+        {
+            String pass_val = getResources().getString(R.string.password_val);
+            binding.password.setError(pass_val);
+            yoyo(R.id.password, binding.password);
+        } else {
+
+            //CALL PROGRESS DIALOG
+            new utils().set_dialog(getContext());
+
+
+            //SEND DATA TO FACTORY
+            loginModelView = new ViewModelProvider(this, new LoginModelViewFactory(getContext(),
+                    binding.username.getText().toString(), binding.password.getText().toString(), "dd")).get(LoginModelView.class);
+
+
+            //CALL METHOD THAT CALLING API
+            loginModelView.get_data(binding.username.getText().toString(), binding.password.getText().toString(), "dd");
+
+
+        }
     }
 
 

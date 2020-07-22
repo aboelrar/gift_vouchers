@@ -73,10 +73,10 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/image_title"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="Gift Voucher From\nSouq.com"
                                     android:textColor="@android:color/black"
                                     android:textSize="@dimen/_18sdp"
                                     android:textStyle="bold" />
@@ -84,33 +84,39 @@
 
                             </LinearLayout>
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/logo"
+                            <com.facebook.shimmer.ShimmerFrameLayout
+                                android:id="@+id/shimmer_view_container"
                                 android:layout_width="@dimen/_50sdp"
                                 android:layout_height="@dimen/_50sdp"
                                 android:layout_alignParentTop="true"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/logo" />
+                                android:layout_centerInParent="true">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/logo"
+                                    android:layout_width="@dimen/_50sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:src="@drawable/gift_voucher_logo" />
+                            </com.facebook.shimmer.ShimmerFrameLayout>
                         </RelativeLayout>
 
                         <TextView
+                            android:id="@+id/tite"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_15sdp"
                             android:paddingLeft="@dimen/_15sdp"
-                            android:text="About Souq"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/descripition"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginRight="@dimen/_20sdp"
                             android:justificationMode="inter_word"
                             android:paddingLeft="@dimen/_20sdp"
-                            android:text="Souq.com is an English-Arabic language e-commerce platform, owned by Amazon, Inc.[3] It is the largest e-commerce platform in the Arab world.[4] On March 28, 2017, Amazon.com Inc. confirmed it would be acquiring Souq.com for $580 million.[5] On May 1, 2019, Souq.com UAE became known as Amazon.ae,[6] whilst the Saudi and Egyptian sites continue operating under the Souq.com brand."
                             android:textSize="@dimen/_13sdp" />
 
                         <TextView
@@ -124,6 +130,7 @@
                             android:textStyle="bold" />
 
                         <LinearLayout
+                            android:id="@+id/type"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
@@ -204,7 +211,16 @@
 
                         </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
 
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp" />
+
                         <LinearLayout
+                            android:id="@+id/select_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -245,6 +261,7 @@
                             app:radius="@dimen/_5sdp">
 
                             <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:id="@+id/price1"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_35sdp"
                                 android:layout_weight=".35"
@@ -258,6 +275,7 @@
                                 app:textSize="@dimen/_13sdp" />
 
                             <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:id="@+id/price2"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_35sdp"
                                 android:layout_marginLeft="@dimen/_10sdp"
@@ -271,6 +289,7 @@
                                 app:textSize="@dimen/_13sdp" />
 
                             <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:id="@+id/price3"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_35sdp"
                                 android:layout_marginLeft="@dimen/_10sdp"
@@ -284,6 +303,7 @@
                                 app:textSize="@dimen/_13sdp" />
 
                             <com.addisonelliott.segmentedbutton.SegmentedButton
+                                android:id="@+id/price4"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_35sdp"
                                 android:layout_marginLeft="@dimen/_10sdp"
@@ -302,17 +322,17 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
-                            android:gravity="center|left"
                             android:layout_marginTop="@dimen/_10sdp"
+                            android:gravity="center|left"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="top"
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:paddingLeft="@dimen/_20sdp"
                                 android:text="add other price"
-                                android:layout_gravity="top"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="bold" />
@@ -320,21 +340,25 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="top"
                                 android:layout_marginTop="@dimen/_6sdp"
                                 android:text="*"
-                                android:layout_gravity="top"
                                 android:textColor="@android:color/holo_red_dark"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="bold" />
+
                             <EditText
+                                android:id="@+id/other_price"
                                 android:layout_width="@dimen/_60sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:layout_marginLeft="@dimen/_20sdp"
+                                android:background="@android:color/white"
                                 android:hint="price"
-                                android:textSize="@dimen/_11sdp"
-                                android:textColor="@android:color/black"
+                                android:imeOptions="actionDone"
+                                android:inputType="number"
                                 android:paddingLeft="@dimen/_5sdp"
-                                android:background="@android:color/white"/>
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_11sdp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -375,10 +399,10 @@
                                     android:id="@+id/next"
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_35sdp"
-                                    android:background="@drawable/next_page"
-                                    android:text="@string/next"
                                     android:layout_marginLeft="@dimen/_10sdp"
                                     android:layout_marginRight="@dimen/_10sdp"
+                                    android:background="@drawable/next_page"
+                                    android:text="@string/next"
                                     android:textAllCaps="false"
                                     android:textSize="@dimen/_12sdp" />
 
