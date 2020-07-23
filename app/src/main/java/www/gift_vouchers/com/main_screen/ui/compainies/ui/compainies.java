@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.CompainiesBinding;
+import www.gift_vouchers.com.local_data.saved_data;
 import www.gift_vouchers.com.main_screen.ui.compainies.model.companies_list;
 import www.gift_vouchers.com.main_screen.ui.compainies.pattern.companies_adapter;
 import www.gift_vouchers.com.utils.utils_adapter;
@@ -40,6 +41,9 @@ public class compainies extends Fragment {
 
         //GET DATA
         getData();
+
+        //SET USER NAME
+        binding.name.setText("Hi," + new saved_data().get_name(getContext()));
 
         return view;
     }

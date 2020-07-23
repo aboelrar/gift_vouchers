@@ -38,6 +38,7 @@ import www.gift_vouchers.com.main_screen.ui.compainies.ui.compainies;
 import www.gift_vouchers.com.main_screen.ui.myorders.ui.myorders;
 import www.gift_vouchers.com.main_screen.ui.settings.settings;
 import www.gift_vouchers.com.main_screen.ui.user_info.ui.user_info;
+import www.gift_vouchers.com.network_check_status.regist_network_broadcast;
 import www.gift_vouchers.com.utils.utils;
 
 public class MainActivity extends AppCompatActivity implements NavigationDrawerCallbacks {
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         Glide.with(MainActivity.this).load(R.drawable.masora).into(binding.topImg);
         Glide.with(MainActivity.this).load(R.drawable.leftimg).into(binding.leftImg);
         Glide.with(MainActivity.this).load(R.drawable.saroee).into(binding.rightImg);
+
+
+        //CALL BROADCAST RECIEVER METHOD
+        new regist_network_broadcast().registerNetworkBroadcastForNougat(MainActivity.this);
 
 
     }
@@ -127,6 +132,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
 
             if (f instanceof compainies) {  //CHECK IF FRAGMENT == MAIN PAGE TO CLOSE
                 moveTaskToBack(true);
+
+            } else if (f instanceof myorders) {  //CHECK IF ORDERS == GO TO MAIN PAGE
+                new utils().Replace_Fragment(new compainies(), R.id.frag, this);
 
             } else if (fm.getBackStackEntryCount() > 0) {
                 Log.i("MainActivity", "popping backstack");

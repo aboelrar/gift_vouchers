@@ -112,7 +112,9 @@ public class user_info_company extends Fragment {
                             .get(UserInfoCoModelView.class);
 
                     //CALL METHOD THAT CALLING API
-                    UserInfoModelView.get_data();
+                    UserInfoModelView.get_data(binding.cardNum.getText().toString(),
+                            binding.phone.getText().toString(), binding.email.getText().toString(), binding.gold.getText().toString(),
+                            binding.silver.getText().toString(), binding.platinum.getText().toString());
                 }
 
 

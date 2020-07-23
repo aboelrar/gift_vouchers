@@ -28,6 +28,13 @@
 
         </activity>
         <activity android:name=".main_screen.ui.MainActivity" />
+
+        <receiver android:name=".network_check_status.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

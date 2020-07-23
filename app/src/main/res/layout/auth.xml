@@ -7,15 +7,22 @@
 
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".auth.ui.auth">
+        android:layout_height="match_parent">
 
-        <FrameLayout
-            android:id="@+id/frag"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".auth.ui.auth">
+
+            <FrameLayout
+                android:id="@+id/frag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <include layout="@layout/connection_txt" />
+    </RelativeLayout>
 </layout>

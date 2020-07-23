@@ -34,12 +34,12 @@ public class CheckOutModelView extends ViewModel implements NetworkInterface {
         this.UserInfoModelViewFactory = UserInfoModelViewFactory;
     }
 
-    void get_data() {
+    void get_data(String email, String name, String phone, String notes) {
 
         //CALL API
         new Apicalls(UserInfoModelViewFactory.context, this).check_out(new saved_data().get_price(UserInfoModelViewFactory.context),
-                new saved_data().cat_id(UserInfoModelViewFactory.context), UserInfoModelViewFactory.email,
-                UserInfoModelViewFactory.username, UserInfoModelViewFactory.phone, UserInfoModelViewFactory.notes);
+                new saved_data().cat_id(UserInfoModelViewFactory.context), email,
+                name, phone, notes);
 
     }
 

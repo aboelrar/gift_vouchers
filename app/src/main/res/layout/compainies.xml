@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/_15sdp"
-                android:text="Hi,Ali"
+                android:id="@+id/name"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_17sdp"
                 android:textStyle="bold" />

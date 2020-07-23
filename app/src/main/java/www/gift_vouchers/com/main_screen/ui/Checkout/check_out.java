@@ -93,7 +93,7 @@ public class check_out extends Fragment {
                     binding.phone.getText().toString(), binding.descripition.getText().toString())).get(CheckOutModelView.class);
 
             //CALL METHOD THAT CALLING API
-            CheckOutModelView.get_data();
+            CheckOutModelView.get_data(binding.emailAddress.getText().toString(), binding.fullname.getText().toString(), binding.phone.getText().toString(), binding.descripition.getText().toString());
         }
     }
 }

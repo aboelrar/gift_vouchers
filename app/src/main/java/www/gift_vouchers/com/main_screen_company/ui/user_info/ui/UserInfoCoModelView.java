@@ -30,12 +30,11 @@ public class UserInfoCoModelView extends ViewModel implements NetworkInterface {
         this.UserInfoModelViewFactory = UserInfoModelViewFactory;
     }
 
-    void get_data() {
+    void get_data(String username, String phone, String email, String gold, String silver, String platinum) {
 
         //CALL API
-        new Apicalls(UserInfoModelViewFactory.context, this).edit_profile_co(UserInfoModelViewFactory.username,
-                UserInfoModelViewFactory.phone, UserInfoModelViewFactory.email, UserInfoModelViewFactory.gold,
-                UserInfoModelViewFactory.silver, UserInfoModelViewFactory.platinum);
+        new Apicalls(UserInfoModelViewFactory.context, this).edit_profile_co(username,
+                phone, email, gold, silver, platinum);
 
     }
 

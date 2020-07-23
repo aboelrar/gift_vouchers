@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.login.ui.login;
+import www.gift_vouchers.com.network_check_status.regist_network_broadcast;
 import www.gift_vouchers.com.utils.utils;
 
 public class auth extends AppCompatActivity {
@@ -17,5 +18,8 @@ public class auth extends AppCompatActivity {
 
         //ADD LOGIN
         new utils().Replace_Fragment(new login(),R.id.frag,this);
+
+        //CALL BROADCAST RECIEVER METHOD
+        new regist_network_broadcast().registerNetworkBroadcastForNougat(auth.this);
     }
 }

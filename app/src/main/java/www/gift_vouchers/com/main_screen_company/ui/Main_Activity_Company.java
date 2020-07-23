@@ -27,6 +27,7 @@ import www.gift_vouchers.com.main_screen.ui.settings.settings;
 import www.gift_vouchers.com.main_screen.ui.user_info.ui.user_info;
 import www.gift_vouchers.com.main_screen_company.ui.my_orders_compant.ui.myorders_company;
 import www.gift_vouchers.com.main_screen_company.ui.user_info.ui.user_info_company;
+import www.gift_vouchers.com.network_check_status.regist_network_broadcast;
 import www.gift_vouchers.com.utils.utils;
 
 public class Main_Activity_Company extends AppCompatActivity implements NavigationDrawerCallbacks {
@@ -54,6 +55,9 @@ public class Main_Activity_Company extends AppCompatActivity implements Navigati
 
         //CLICK LISTNERS
         nav_bootom();
+
+        //CALL BROADCAST RECIEVER METHOD
+        new regist_network_broadcast().registerNetworkBroadcastForNougat(Main_Activity_Company.this);
     }
 
     //SET ON CLICK LISTNERS

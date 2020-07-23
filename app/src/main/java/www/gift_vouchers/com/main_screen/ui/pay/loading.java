@@ -32,11 +32,10 @@ public class loading {
         int height = android.view.WindowManager.LayoutParams.WRAP_CONTENT;
         dialog.getWindow().setLayout(width, height);
 
-        WindowManager.LayoutParams wlp = dialog.getWindow().getAttributes();
 
 
             YoYo.with(Techniques.FadeIn)
-                .duration(2500)
+                .duration(1600)
                 .playOn(dialog.findViewById(R.id.pop_up));
 
 
