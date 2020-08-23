@@ -30,6 +30,8 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.auth;
+import www.gift_vouchers.com.local_data.saved_data;
+import www.gift_vouchers.com.local_data.send_data;
 
 
 /**
@@ -71,6 +73,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     TextView logout;
     CircleImageView cri_img;
     ImageView saroo, prize;
+    TextView name;
 
 
     @Override
@@ -115,12 +118,21 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         cri_img = view.findViewById(R.id.cri_img);
         saroo = view.findViewById(R.id.sarooh);
         prize = view.findViewById(R.id.prize);
+        name = view.findViewById(R.id.name);
 
         //SET ON CLICK LISTNERS
         logout.setOnClickListener(this);
 
+        //SET NAME TEXT
+        name.setText(getString(R.string.hi) + new saved_data().get_name(getContext()));
+
+        //SET LOGIN TEXT
+        if (new saved_data().get_login_status(getContext()) == false) {
+            logout.setText(getString(R.string.login));
+        }
+
         //SET IMAGE
-        Glide.with(getContext()).load(R.drawable.person).into(cri_img);
+        Glide.with(getContext()).load(new saved_data().get_picture(getContext())).into(cri_img);
         Glide.with(getContext()).load(R.drawable.saroee).into(saroo);
         Glide.with(getContext()).load(R.drawable.mygift).into(prize);
 
@@ -259,6 +271,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.logout) {
+            send_data.login_status(getContext(), false); //ADD STATUS
             getContext().startActivity(new Intent(getContext(), auth.class));
         }
     }

@@ -55,6 +55,8 @@
                 android:backgroundTint="#d3d3d3"
                 android:drawableRight="@drawable/lock"
                 android:hint="@string/e_mail"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
                 android:maxLines="1"
                 android:paddingLeft="@dimen/_5sdp"
                 android:paddingRight="@dimen/_10sdp" />

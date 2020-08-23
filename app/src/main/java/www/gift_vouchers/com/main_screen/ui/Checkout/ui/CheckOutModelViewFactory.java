@@ -1,4 +1,4 @@
-package www.gift_vouchers.com.main_screen.ui.Checkout;
+package www.gift_vouchers.com.main_screen.ui.Checkout.ui;
 
 import android.content.Context;
 

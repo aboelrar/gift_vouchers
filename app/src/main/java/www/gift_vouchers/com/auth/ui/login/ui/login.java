@@ -2,25 +2,22 @@ package www.gift_vouchers.com.auth.ui.login.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.forget_pass.ui.forget_pass;
 import www.gift_vouchers.com.auth.ui.signup.ui.signup;
 import www.gift_vouchers.com.databinding.LoginBinding;
+import www.gift_vouchers.com.main_screen.ui.MainActivity;
+import www.gift_vouchers.com.utils.utils;
 
 import static www.gift_vouchers.com.utils.utils.yoyo;
-
-import www.gift_vouchers.com.main_screen_company.ui.Main_Activity_Company;
-import www.gift_vouchers.com.utils.utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,7 +80,7 @@ public class login extends Fragment {
         binding.explore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), Main_Activity_Company.class));
+                startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
     }

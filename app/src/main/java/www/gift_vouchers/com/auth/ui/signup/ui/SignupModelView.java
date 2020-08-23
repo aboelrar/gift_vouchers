@@ -1,7 +1,6 @@
 package www.gift_vouchers.com.auth.ui.signup.ui;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
@@ -18,12 +17,8 @@ import www.gift_vouchers.com.NetworkLayer.Apicalls;
 import www.gift_vouchers.com.NetworkLayer.NetworkInterface;
 import www.gift_vouchers.com.NetworkLayer.ResponseModel;
 import www.gift_vouchers.com.R;
-import www.gift_vouchers.com.auth.ui.login.model.login_rootBody;
-import www.gift_vouchers.com.auth.ui.login.model.login_rootRootClass;
-import www.gift_vouchers.com.auth.ui.login.model.login_rootUser;
 import www.gift_vouchers.com.auth.ui.signup.model.signup_rootBody;
 import www.gift_vouchers.com.auth.ui.signup.model.signup_rootRootClass;
-import www.gift_vouchers.com.auth.ui.signup.model.signup_rootUser;
 import www.gift_vouchers.com.local_data.send_data;
 import www.gift_vouchers.com.utils.utils;
 
@@ -39,12 +34,12 @@ public class SignupModelView extends ViewModel implements NetworkInterface {
         this.SignupModelViewFactory = SignupModelViewFactory;
     }
 
-    void get_data(String username, String type, String phone, String email, String password, String firebase_token) {
+    void get_data(String username, String type, String phone, String email, String password, String tax, String firebase_token) {
 
 
         //CALL API
         new Apicalls(SignupModelViewFactory.context, this).insertUser(username
-                , type, phone, email, password, firebase_token);
+                , type, phone, email, password, tax, firebase_token);
 
         this.type = type;
 
@@ -107,6 +102,8 @@ public class SignupModelView extends ViewModel implements NetworkInterface {
         arrayList.add(signup_rootUser.getPhone());
         arrayList.add(signup_rootBody.getAccessToken());
         arrayList.add(signup_rootUser.getRoleId());
+        arrayList.add("" + signup_rootUser.getPicture());
+
 
         Observable.fromArray(arrayList).
                 observeOn(Schedulers.computation()).subscribe(new Consumer<ArrayList<String>>() {
@@ -120,6 +117,8 @@ public class SignupModelView extends ViewModel implements NetworkInterface {
                 send_data.send_token(SignupModelViewFactory.context, arrayList.get(3)); //ADD TOKEN
                 send_data.send_type(SignupModelViewFactory.context, arrayList.get(4)); //ADD TYPE
                 send_data.login_status(SignupModelViewFactory.context, true); //ADD STATUS
+                send_data.set_user_img(SignupModelViewFactory.context, arrayList.get(5)); //ADD PICTURE
+
 
             }
         });

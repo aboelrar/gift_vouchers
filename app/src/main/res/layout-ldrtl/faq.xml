@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main_screen.ui.faq.ui.faq">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".08"
+                android:paddingRight="@dimen/_15sdp"
+                android:text="@string/faq"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight=".15"
+                android:src="@drawable/gift_voucher_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight=".08"
+                android:text="Gift Voucher's v1.0.0"
+                android:textSize="@dimen/_15sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".55"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".27"
+                    android:background="@drawable/faq"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:text="@string/faq"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_16sdp" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".04" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".7">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/faq_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <ProgressBar
+                            android:id="@+id/loading"
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:indeterminateTint="@color/t_color" />
+                    </RelativeLayout>
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".1">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:background="@drawable/auth_button_bg"
+                    android:padding="@dimen/_10sdp"
+                    android:rotation="180"
+                    android:src="@drawable/back_one" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

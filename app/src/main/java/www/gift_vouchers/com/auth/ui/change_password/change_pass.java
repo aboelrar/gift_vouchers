@@ -1,18 +1,16 @@
 package www.gift_vouchers.com.auth.ui.change_password;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.ChangePassBinding;
-
 import www.gift_vouchers.com.utils.utils;
 
 import static www.gift_vouchers.com.utils.utils.yoyo;
@@ -74,7 +72,8 @@ public class change_pass extends Fragment {
                     binding.password.getText().toString(), binding.coPassword.getText().toString())).get(ChangePasswordModelView.class);
 
             //CALL METHOD THAT CALLING API
-            ChangePasswordModelView.get_data();
+            ChangePasswordModelView.get_data(getArguments().getString("code"), getArguments().getString("email"),
+                    binding.password.getText().toString(), binding.coPassword.getText().toString());
 
         }
     }

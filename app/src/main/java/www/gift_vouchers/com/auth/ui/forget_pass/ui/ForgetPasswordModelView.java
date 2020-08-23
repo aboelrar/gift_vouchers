@@ -2,38 +2,26 @@ package www.gift_vouchers.com.auth.ui.forget_pass.ui;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 
 import com.android.volley.VolleyError;
-import com.google.gson.Gson;
 
 import org.json.JSONException;
 
-import java.util.ArrayList;
-
 import es.dmoral.toasty.Toasty;
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 import www.gift_vouchers.com.NetworkLayer.Apicalls;
 import www.gift_vouchers.com.NetworkLayer.NetworkInterface;
 import www.gift_vouchers.com.NetworkLayer.ResponseModel;
 import www.gift_vouchers.com.R;
-import www.gift_vouchers.com.auth.ui.login.model.login_rootBody;
-import www.gift_vouchers.com.auth.ui.login.model.login_rootRootClass;
-import www.gift_vouchers.com.auth.ui.login.model.login_rootUser;
-import www.gift_vouchers.com.auth.ui.login.ui.loading;
 import www.gift_vouchers.com.auth.ui.verfication_code.verfication_code;
-import www.gift_vouchers.com.local_data.send_data;
-import www.gift_vouchers.com.main_screen.ui.details.ui.company_details;
 import www.gift_vouchers.com.utils.utils;
 
 public class ForgetPasswordModelView extends ViewModel implements NetworkInterface {
 
+    int type;
     ForgetPasswordModelViewFactory ForgetPasswordModelViewFactory;
 
 
@@ -41,11 +29,12 @@ public class ForgetPasswordModelView extends ViewModel implements NetworkInterfa
         this.ForgetPasswordModelViewFactory = ForgetPasswordModelViewFactory;
     }
 
-    void get_data() {
+    public void get_data(String email, int type) {
 
+        this.type = type;
 
         //CALL API
-        new Apicalls(ForgetPasswordModelViewFactory.context, this).FORGET_PASS(ForgetPasswordModelViewFactory.email);
+        new Apicalls(ForgetPasswordModelViewFactory.context, this).FORGET_PASS(email);
 
 
     }
@@ -71,17 +60,19 @@ public class ForgetPasswordModelView extends ViewModel implements NetworkInterfa
                 Toasty.success(ForgetPasswordModelViewFactory.context,
                         "" + model.getJsonObject().getString("message"), Toasty.LENGTH_SHORT).show();
 
-                //SEND DATA TO NEXT FRAGMENT
-                Fragment home = new verfication_code();
-                Bundle bundle = new Bundle();
-                bundle.putString("email", ForgetPasswordModelViewFactory.email);
-                //set Fragmentclass Arguments
-                home.setArguments(bundle);
+                if (type != 1) {
 
-                ((AppCompatActivity) ForgetPasswordModelViewFactory.context).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frag, home).addToBackStack(null).commit();
+                    //SEND DATA TO NEXT FRAGMENT
+                    Fragment home = new verfication_code();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("email", ForgetPasswordModelViewFactory.email);
+                    //set Fragmentclass Arguments
+                    home.setArguments(bundle);
 
+                    ((AppCompatActivity) ForgetPasswordModelViewFactory.context).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frag, home).addToBackStack(null).commit();
 
+                }
             }
 
         } catch (JSONException e) {
@@ -93,7 +84,7 @@ public class ForgetPasswordModelView extends ViewModel implements NetworkInterfa
 
     @Override
     public void OnError(VolleyError error) {
-        Log.e("no_connection","no");
+        Log.e("no_connection", "no");
         new utils().dismiss_dialog(ForgetPasswordModelViewFactory.context);
     }
 

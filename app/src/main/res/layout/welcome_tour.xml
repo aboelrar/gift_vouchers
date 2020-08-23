@@ -22,6 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/_20sdp"
         android:padding="@dimen/_3sdp"
+        android:layoutDirection="ltr"
         app:ci_drawable="@drawable/oookkkkk"
         app:ci_drawable_unselected="@drawable/un_selected"
         app:ci_height="@dimen/_6sdp"

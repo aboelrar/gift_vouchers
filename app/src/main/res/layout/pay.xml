@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main_screen.ui.pay.pay">
+        tools:context=".main_screen.ui.pay.ui.pay">
 
 
         <androidx.core.widget.NestedScrollView
@@ -139,6 +139,7 @@
                             android:layout_marginRight="@dimen/_10sdp"
                             android:background="@drawable/selected_price"
                             android:text="@string/confirm"
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="@android:color/white"
                             android:textSize="@dimen/_12sdp" />

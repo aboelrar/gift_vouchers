@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main_screen.ui.pay.ui.pay">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_weight=".05"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:text="@string/checkout"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:text="@string/select_payment_method"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginLeft="@dimen/_50sdp"
+                        android:src="@drawable/paypal" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="@dimen/_55sdp"
+                        android:layout_marginLeft="@dimen/_50sdp"
+                        android:src="@drawable/visa" />
+
+                    <RadioGroup
+                        android:id="@+id/radiogroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_marginTop="@dimen/_15sdp">
+
+                        <RadioButton
+                            android:id="@+id/paypal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layoutDirection="ltr"
+                            android:text="@string/apple_pay"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/visa"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layoutDirection="ltr"
+                            android:text="@string/visa_card"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+
+                    </RadioGroup>
+                </RelativeLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="center|right">
+
+                        <ImageView
+                            android:id="@+id/back"
+                            android:layout_width="@dimen/_38sdp"
+                            android:rotation="180"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_gravity="center|right"
+                            android:layout_marginRight="@dimen/_20sdp"
+                            android:background="@drawable/auth_button_bg"
+                            android:padding="@dimen/_9sdp"
+                            android:src="@drawable/back_one" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="center|right"
+                        android:paddingRight="@dimen/_15sdp">
+
+                        <Button
+                            android:id="@+id/confirm"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:background="@drawable/selected_price"
+                            android:text="@string/confirm"
+                            android:visibility="gone"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+</layout>

@@ -71,6 +71,15 @@ public class send_data {
         editor.commit();
     }
 
+    //SET USER IMAGE
+    public static void set_user_img(Context context, String image) {
+        //SAVE LANGUAGE STATUS
+        SharedPreferences sharedPreferences = context.getSharedPreferences("personal_info", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("image", image);
+        editor.commit();
+    }
+
 
     //SET ORDER ID
     public static void set_order_id(Context context, String id) {

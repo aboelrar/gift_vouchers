@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main_screen.ui.terms_conditions.terms_and_conditions">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".08"
+                android:paddingRight="@dimen/_15sdp"
+                android:text="@string/terms_amp_conditions"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight=".15"
+                android:src="@drawable/gift_voucher_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight=".08"
+                android:text="Gift Voucher's v1.0.0"
+                android:textSize="@dimen/_15sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".55"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".27"
+                    android:background="@drawable/terms_condition"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:text="@string/terms_amp_conditions"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_16sdp" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".04" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight=".7">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:justificationMode="inter_word"
+                        android:paddingLeft="@dimen/_20sdp"
+                        android:text="Souq.com is an English-Arabic language e-commerce platform, owned by Amazon, Inc.[3] It is the largest e-commerce platform in the Arab world.[4] On March 28, 2017, Amazon.com Inc. confirmed it would be acquiring Souq.com for $580 million.[5] On May 1, 2019, Souq.com UAE became known as Amazon.ae,[6] whilst the Saudi and Egyptian sites continue operating under the Souq.com brand."
+                        android:textSize="@dimen/_13sdp" />
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".1">
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:rotation="180"
+                    android:layout_gravity="center|left"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:background="@drawable/auth_button_bg"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/back_one" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

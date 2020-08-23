@@ -1,8 +1,6 @@
 package www.gift_vouchers.com.auth.ui.login.ui;
 
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
@@ -101,6 +99,7 @@ public class LoginModelView extends ViewModel implements NetworkInterface {
         arrayList.add(login_rootUser.getPhone());
         arrayList.add(login_rootBody.getAccessToken());
         arrayList.add(login_rootUser.getRoleId());
+        arrayList.add("" + login_rootUser.getPicture());
 
         Observable.fromArray(arrayList).
                 observeOn(Schedulers.computation()).subscribe(new Consumer<ArrayList<String>>() {
@@ -114,6 +113,7 @@ public class LoginModelView extends ViewModel implements NetworkInterface {
                 send_data.send_token(loginModelViewFactory.context, arrayList.get(3)); //ADD TOKEN
                 send_data.send_type(loginModelViewFactory.context, arrayList.get(4)); //ADD TYPE
                 send_data.login_status(loginModelViewFactory.context, true); //ADD STATUS
+                send_data.set_user_img(loginModelViewFactory.context, arrayList.get(5)); //ADD PICTURE
 
             }
         });

@@ -6,7 +6,6 @@ import com.android.volley.Request;
 
 import org.json.JSONException;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -57,9 +56,9 @@ public class Apicalls {
      * @func User Registration
      */
 
-    public void insertUser(final String name, final String type, final String phone, final String email, final String password, final String firebase_token) {
+    public void insertUser(final String name, final String type, final String phone, final String email, final String password, String tax, final String firebase_token) {
 
-        apiRouter.performRequest(Apiclient.INSERT_USER.getURL(), Apiclient.INSERT_USER.getParams(), Arrays.asList(name, password, type, phone, email), Request.Method.POST, 2);
+        apiRouter.performRequest(Apiclient.INSERT_USER.getURL(), Apiclient.INSERT_USER.getParams(), Arrays.asList(name, password, type, phone, email, tax), Request.Method.POST, 2);
 
     }
 
@@ -97,10 +96,10 @@ public class Apicalls {
      * @func ACTIVE ACCOUNT
      */
 
-    public void companies() {
+    public void companies(String search) {
 
         try {
-            apiRouter.makeAdvancedRequest(Apiclient.COMPANIES.getURL(), Request.Method.GET, Apiclient.COMPANIES.getParams(), null, null);
+            apiRouter.makeAdvancedRequest(Apiclient.COMPANIES.getURL() + search, Request.Method.GET, Apiclient.COMPANIES.getParams(), null, null);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -249,10 +248,10 @@ public class Apicalls {
      * @func WORK SHOP TYPES
      */
 
-    public void work_shops_types() {
+    public void GET_FAQ() {
 
         try {
-            apiRouter.makeAdvancedRequest(Apiclient.WORK_SHOPS.getURL(), Request.Method.GET, Apiclient.WORK_SHOPS.getParams(), null, null);
+            apiRouter.makeAdvancedRequest(Apiclient.FAQ.getURL(), Request.Method.GET, Apiclient.FAQ.getParams(), null, null);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -411,7 +410,7 @@ public class Apicalls {
     public void confirm_order(final String order_id) {
 
         try {
-            apiRouter.makeAdvancedRequest(Apiclient.CONFIRM_ORDER.getURL() + "/" + order_id, Request.Method.POST, Apiclient.CONFIRM_ORDER.getParams(), null, null);
+            apiRouter.makeAdvancedRequest(Apiclient.CONFIRM_ORDER.getURL(), Request.Method.POST, Apiclient.CONFIRM_ORDER.getParams(), Arrays.asList(order_id), null);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -423,9 +422,9 @@ public class Apicalls {
      * @func Accept Reject Request
      */
 
-    public void accept_reject_request(final String request_id, String status) {
+    public void suggestion(final String suggerstion) {
         try {
-            apiRouter.makeAdvancedRequest(Apiclient.ACCEPT_REJECT_REQUEST.getURL() + "/" + request_id, Request.Method.POST, Apiclient.ACCEPT_REJECT_REQUEST.getParams(), Arrays.asList(status), null);
+            apiRouter.makeAdvancedRequest(Apiclient.CONTACT_US.getURL(), Request.Method.POST, Apiclient.CONTACT_US.getParams(), Arrays.asList(suggerstion), null);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -433,13 +432,13 @@ public class Apicalls {
     //----------------------------------------------------------------------------------------------
 
     /**
-     * @func Change Language
+     * @func Verfication Code
      */
 
 
-    public void change_language(String language) {
+    public void verify_code(String code) {
         try {
-            apiRouter.makeAdvancedRequest(Apiclient.LANGUAGE.getURL(), Request.Method.POST, Apiclient.LANGUAGE.getParams(), Arrays.asList(language), null);
+            apiRouter.makeAdvancedRequest(Apiclient.VERFIY_CODE.getURL() + code, Request.Method.GET, Apiclient.VERFIY_CODE.getParams(), null, null);
         } catch (JSONException e) {
             e.printStackTrace();
         }

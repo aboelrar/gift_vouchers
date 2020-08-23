@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -12,37 +12,51 @@
         android:layout_height="match_parent"
         tools:context=".main_screen.ui.compainies.ui.compainies">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/_15sdp"
-                android:id="@+id/name"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/_17sdp"
-                android:textStyle="bold" />
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/_15sdp"
-                android:text="Get the most popular gift Vouchers"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
-
-            <com.cooltechworks.views.shimmer.ShimmerRecyclerView
-                android:id="@+id/companies_list"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:shimmer_demo_layout_manager_type="grid"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_10sdp" />
-        </LinearLayout>
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:text="Get the most popular gift Vouchers"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+                    android:id="@+id/companies_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    app:shimmer_demo_layout_manager_type="grid" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/place_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/no_company_found"
+                android:textSize="@dimen/_15sdp"
+                android:visibility="gone" />
+        </RelativeLayout>
     </FrameLayout>
 </layout>

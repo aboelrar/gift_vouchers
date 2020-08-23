@@ -64,7 +64,8 @@
                     android:hint="@string/new_password"
                     android:inputType="textPassword"
                     android:paddingLeft="@dimen/_5sdp"
-                    android:paddingRight="@dimen/_10sdp" />
+                    android:paddingRight="@dimen/_10sdp"
+                    android:singleLine="true" />
 
                 <EditText
                     android:id="@+id/co_password"
@@ -76,9 +77,11 @@
                     android:backgroundTint="#d3d3d3"
                     android:drawableRight="@drawable/lock"
                     android:hint="@string/confirm_new_password"
+                    android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:paddingLeft="@dimen/_5sdp"
-                    android:paddingRight="@dimen/_10sdp" />
+                    android:paddingRight="@dimen/_10sdp"
+                    android:singleLine="true" />
 
             </LinearLayout>
 

@@ -8,22 +8,17 @@ import androidx.lifecycle.ViewModel;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import es.dmoral.toasty.Toasty;
 import www.gift_vouchers.com.NetworkLayer.Apicalls;
 import www.gift_vouchers.com.NetworkLayer.NetworkInterface;
 import www.gift_vouchers.com.NetworkLayer.ResponseModel;
-import www.gift_vouchers.com.R;
-import www.gift_vouchers.com.main_screen.ui.change_password.ui.ChangePasswordModelViewFactory;
 import www.gift_vouchers.com.main_screen.ui.compainies.model.CompaniniesBody;
 import www.gift_vouchers.com.main_screen.ui.compainies.model.CompaniniesCategory;
 import www.gift_vouchers.com.main_screen.ui.compainies.model.CompaniniesRootClass;
 import www.gift_vouchers.com.main_screen.ui.compainies.model.companies_list;
-import www.gift_vouchers.com.utils.utils;
 
 public class CompaniesModelView extends ViewModel implements NetworkInterface {
 
@@ -38,10 +33,10 @@ public class CompaniesModelView extends ViewModel implements NetworkInterface {
         this.companiesModelViewFactory = companiesModelViewFactory;
     }
 
-    void get_data() {
+    void get_data(String search) {
 
         //CALL API
-        new Apicalls(companiesModelViewFactory.context, this).companies();
+        new Apicalls(companiesModelViewFactory.context, this).companies(search);
 
     }
 
@@ -57,7 +52,7 @@ public class CompaniesModelView extends ViewModel implements NetworkInterface {
 
     @Override
     public void OnError(VolleyError error) {
-        Log.e("no_connection","no");
+        Log.e("no_connection", "no");
 
     }
 
@@ -69,10 +64,12 @@ public class CompaniesModelView extends ViewModel implements NetworkInterface {
         //GET DATA FROM SERVER
         companiniesBody = companiniesRootClass.getBody();
 
-        for (int index = 0; index < companiniesBody.length; index++) {
-            arrayList.add(new companies_list("" + companiniesBody[index].getId(),
-                    companiniesBody[index].getUsername() + " Gift Voucher online shopping",
-                    companiniesBody[index].getPicture()));
+        if (companiniesBody != null) {
+            for (int index = 0; index < companiniesBody.length; index++) {
+                arrayList.add(new companies_list("" + companiniesBody[index].getId(),
+                        companiniesBody[index].getUsername() + " Gift Voucher online shopping",
+                        companiniesBody[index].getPicture()));
+            }
         }
 
         //SET DATA IN MULTI LIVE DATA

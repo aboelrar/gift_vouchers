@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".auth.ui.forget_pass.ui.forget_pass">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".4"
+                android:src="@drawable/forget_pass_img" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".1"
+                android:text="Forget Password !!!"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".11"
+                android:gravity="center"
+                android:paddingLeft="@dimen/_15sdp"
+                android:text="Enter the mail address associated\nwith your account"
+                android:textColor="#E1E1E1"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_weight=".08"
+                android:backgroundTint="#d3d3d3"
+                android:drawableLeft="@drawable/lock"
+                android:hint="@string/e_mail"
+                android:gravity="right|center"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:paddingRight="@dimen/_5sdp"
+                android:paddingLeft="@dimen/_10sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".2"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/reset_password"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/next_page"
+                    android:text="@string/reset_password"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>

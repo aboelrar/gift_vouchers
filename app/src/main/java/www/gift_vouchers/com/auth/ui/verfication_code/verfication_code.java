@@ -1,23 +1,23 @@
 package www.gift_vouchers.com.auth.ui.verfication_code;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import es.dmoral.toasty.Toasty;
 import www.gift_vouchers.com.R;
-import www.gift_vouchers.com.auth.ui.change_password.change_pass;
+import www.gift_vouchers.com.auth.ui.forget_pass.ui.ForgetPasswordModelView;
 import www.gift_vouchers.com.auth.ui.forget_pass.ui.ForgetPasswordModelViewFactory;
 import www.gift_vouchers.com.databinding.VerficationCodeBinding;
+import www.gift_vouchers.com.utils.utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +26,7 @@ public class verfication_code extends Fragment {
     VerficationCodeBinding binding;
     String txt1, txt2, txt3, txt4;
     String word;
+    VerfiyCodeModelView VerfiyCodeModelView;
 
     public verfication_code() {
         // Required empty public constructor
@@ -44,6 +45,8 @@ public class verfication_code extends Fragment {
         move_next_num();
 
         onclick();
+
+        VerfiyCodeModelView = ViewModelProviders.of(verfication_code.this).get(VerfiyCodeModelView.class);
 
         return view;
     }
@@ -121,9 +124,31 @@ public class verfication_code extends Fragment {
 
     void onclick() {
 
+        //SEND FORGET PASS
+        binding.resendCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //OPEN DIALOG
+                new utils().set_dialog(getContext());
+
+                //SEND DATA TO FACTORY
+                ForgetPasswordModelView ForgetPasswordModelView = new ViewModelProvider(verfication_code.this, new ForgetPasswordModelViewFactory(getContext(),
+                        getArguments().getString("email"))).get(ForgetPasswordModelView.class);
+
+                //CALL METHOD THAT CALLING API
+                ForgetPasswordModelView.get_data(getArguments().getString("email"),1);
+            }
+        });
+
+        //SEND DATA
         binding.send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //OPEN DIALOG
+                new utils().set_dialog(getContext());
+
                 if ((binding.edit1.getText().toString().equals("")) || (binding.edit2.getText().toString().equals(""))
                         || (binding.edit3.getText().toString().equals("")) || (binding.edit4.getText().toString().equals(""))) {
                     Toasty.error(getContext(), getString(R.string.insert_code), Toasty.LENGTH_SHORT).show();
@@ -134,16 +159,8 @@ public class verfication_code extends Fragment {
                     txt4 = binding.edit4.getText().toString();
                     word = txt1 + txt2 + txt3 + txt4;
 
-                    //SEND DATA TO NEXT FRAGMENT
-                    Fragment home = new change_pass();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("email", getArguments().getString("email"));
-                    bundle.putString("code", word);
-                    //set Fragmentclass Arguments
-                    home.setArguments(bundle);
 
-                    ((AppCompatActivity) getContext()).getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frag, home).addToBackStack(null).commit();
+                    VerfiyCodeModelView.get_data(getContext(), word, getArguments().getString("email"));
                 }
 
             }

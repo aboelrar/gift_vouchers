@@ -54,8 +54,7 @@
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
                             android:layout_centerInParent="true"
-                            android:layout_marginTop="@dimen/_8sdp"
-                            android:src="@drawable/person" />
+                            android:layout_marginTop="@dimen/_8sdp" />
 
                     </RelativeLayout>
 
@@ -97,11 +96,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_marginLeft="@dimen/_15sdp"
+                        android:imeOptions="actionDone"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginRight="@dimen/_15sdp"
                         android:background="@android:color/white"
                         android:hint="@string/username"
-                        android:imeOptions="actionDone"
+                        android:singleLine="true"
                         android:paddingLeft="@dimen/_7sdp"
                         android:textSize="@dimen/_12sdp" />
 
@@ -179,6 +179,7 @@
                         android:layout_marginRight="@dimen/_15sdp"
                         android:background="@android:color/white"
                         android:hint="@string/e_mail"
+                        android:singleLine="true"
                         android:imeOptions="actionDone"
                         android:paddingLeft="@dimen/_7sdp"
                         android:textSize="@dimen/_12sdp" />
@@ -217,6 +218,7 @@
                         android:layout_marginRight="@dimen/_15sdp"
                         android:background="@android:color/white"
                         android:hint="@string/phone_number"
+                        android:singleLine="true"
                         android:imeOptions="actionDone"
                         android:inputType="number"
                         android:paddingLeft="@dimen/_7sdp"
@@ -256,6 +258,7 @@
                             android:background="@android:color/white"
                             android:gravity="center"
                             android:hint="@string/price_company"
+                            android:singleLine="true"
                             android:imeOptions="actionDone"
                             android:inputType="number"
                             android:textSize="@dimen/_12sdp" />
@@ -305,6 +308,7 @@
                             android:background="@android:color/white"
                             android:gravity="center"
                             android:hint="@string/price_company"
+                            android:singleLine="true"
                             android:imeOptions="actionDone"
                             android:inputType="number"
                             android:textSize="@dimen/_12sdp" />
@@ -354,6 +358,7 @@
                             android:background="@android:color/white"
                             android:gravity="center"
                             android:hint="@string/price_company"
+                            android:singleLine="true"
                             android:imeOptions="actionDone"
                             android:inputType="number"
                             android:textSize="@dimen/_12sdp" />

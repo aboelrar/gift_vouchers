@@ -54,8 +54,7 @@
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="@dimen/_60sdp"
                             android:layout_centerInParent="true"
-                            android:layout_marginTop="@dimen/_8sdp"
-                            android:src="@drawable/person" />
+                            android:layout_marginTop="@dimen/_8sdp" />
 
                     </RelativeLayout>
 
@@ -101,14 +100,16 @@
                         android:layout_marginRight="@dimen/_15sdp"
                         android:background="@android:color/white"
                         android:hint="@string/username"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
                         android:paddingLeft="@dimen/_7sdp"
                         android:textSize="@dimen/_12sdp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -139,10 +140,10 @@
                         android:layout_marginRight="@dimen/_15sdp"
                         android:background="@android:color/white"
                         android:hint="@string/country"
-                        android:visibility="gone"
                         android:paddingLeft="@dimen/_7sdp"
                         android:text="mahmoud st ,Cairo, Egypt"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -178,6 +179,9 @@
                         android:layout_marginRight="@dimen/_15sdp"
                         android:background="@android:color/white"
                         android:hint="@string/e_mail"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
                         android:paddingLeft="@dimen/_7sdp"
                         android:textSize="@dimen/_12sdp" />
 
@@ -215,6 +219,9 @@
                         android:layout_marginRight="@dimen/_15sdp"
                         android:background="@android:color/white"
                         android:hint="@string/phone_number"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
                         android:paddingLeft="@dimen/_7sdp"
                         android:textSize="@dimen/_12sdp" />
 

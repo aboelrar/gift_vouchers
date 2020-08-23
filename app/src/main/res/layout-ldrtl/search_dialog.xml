@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pop_up"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/_5sdp"
+        android:weightSum="1">
+
+        <EditText
+            android:id="@+id/search_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight=".85"
+            android:gravity="right|center"
+            android:background="@android:color/white"
+            android:hint="@string/search_for_company"
+            android:paddingRight="@dimen/_5sdp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight=".15"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/search"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/search_icon" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

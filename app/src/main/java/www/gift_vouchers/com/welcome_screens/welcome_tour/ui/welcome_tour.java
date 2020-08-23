@@ -1,24 +1,23 @@
 package www.gift_vouchers.com.welcome_screens.welcome_tour.ui;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.media.Image;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.util.Locale;
 
 import me.relex.circleindicator.CircleIndicator;
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.auth;
-import www.gift_vouchers.com.auth.ui.login.ui.login;
-import www.gift_vouchers.com.welcome_screens.splash.ui.splash_screen;
 import www.gift_vouchers.com.welcome_screens.welcome_tour.pattern.viewimage;
 
 public class welcome_tour extends AppCompatActivity {
-   TextView skip;
+    TextView skip;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +26,13 @@ public class welcome_tour extends AppCompatActivity {
         final ViewPager viewPager = findViewById(R.id.viewpager);
         viewimage viewimage = new viewimage(welcome_tour.this);
         viewPager.setAdapter(viewimage);
+
+        //CHECK LANGAUGE
+        String CurrentLang = Locale.getDefault().getLanguage();
+        if (CurrentLang.equals("ar")) {
+            viewPager.setCurrentItem(2);
+        }
+
 
         CircleIndicator circleIndicator = findViewById(R.id.indicator);
         circleIndicator.setViewPager(viewPager);

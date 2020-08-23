@@ -2,24 +2,21 @@ package www.gift_vouchers.com.main_screen.ui.cart;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.bumptech.glide.Glide;
 
 import www.gift_vouchers.com.R;
-import www.gift_vouchers.com.auth.ui.login.ui.login;
 import www.gift_vouchers.com.databinding.CartBinding;
 import www.gift_vouchers.com.local_data.saved_data;
 import www.gift_vouchers.com.local_data.send_data;
-import www.gift_vouchers.com.main_screen.ui.Checkout.check_out;
-import www.gift_vouchers.com.main_screen.ui.select_gift_design.ui.select_design;
+import www.gift_vouchers.com.main_screen.ui.Checkout.ui.check_out;
 import www.gift_vouchers.com.utils.utils;
 
 /**

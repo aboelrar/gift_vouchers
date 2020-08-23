@@ -1,15 +1,16 @@
-package www.gift_vouchers.com.main_screen.ui.pay;
+package www.gift_vouchers.com.main_screen.ui.pay.ui;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.view.Gravity;
+import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -33,9 +34,8 @@ public class loading {
         dialog.getWindow().setLayout(width, height);
 
 
-
-            YoYo.with(Techniques.FadeIn)
-                .duration(1600)
+        YoYo.with(Techniques.FadeIn)
+                .duration(1000)
                 .playOn(dialog.findViewById(R.id.pop_up));
 
 
@@ -45,7 +45,14 @@ public class loading {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                new utils().Replace_Fragment(new compainies(), R.id.frag, context);
+                //GO TO HOME
+                Fragment home = new compainies();
+                Bundle bundle = new Bundle();
+                bundle.putString("search", "");
+                //set Fragmentclass Arguments
+                home.setArguments(bundle);
+                ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frag, home).addToBackStack(null).commit();
             }
         });
 

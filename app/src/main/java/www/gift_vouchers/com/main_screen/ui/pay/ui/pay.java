@@ -1,19 +1,16 @@
-package www.gift_vouchers.com.main_screen.ui.pay;
+package www.gift_vouchers.com.main_screen.ui.pay.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
@@ -23,8 +20,6 @@ import com.paypal.android.sdk.payments.PaymentConfirmation;
 import com.paytabs.paytabs_sdk.payment.ui.activities.PayTabActivity;
 import com.paytabs.paytabs_sdk.utils.PaymentParams;
 
-import org.json.JSONException;
-
 import java.math.BigDecimal;
 
 import es.dmoral.toasty.Toasty;
@@ -32,7 +27,6 @@ import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.PayBinding;
 import www.gift_vouchers.com.local_data.saved_data;
 import www.gift_vouchers.com.local_data.send_data;
-import www.gift_vouchers.com.main_screen.ui.MainActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -67,13 +61,6 @@ public class pay extends Fragment {
 
     //CLICK LISTNERS
     void click_listners() {
-        binding.confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loading loading = new loading();
-                loading.dialog(getContext(), R.layout.successful_login, .80);
-            }
-        });
 
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,15 +156,14 @@ public class pay extends Fragment {
 
                     send_data.check_card(getContext(), "0");
 
-                    //OPEN DIALOG
-                    loading loading = new loading();
-                    loading.dialog(getContext(), R.layout.successfull_payment, .80);
+                    //SEND DATA TO FACTORY
+                    PayModelView view_model = ViewModelProviders.of(this).get(PayModelView.class);
 
-//                    try {
-//                        new Apicalls(pament_method.this, pament_method.this).confirm_consultation("" + consultation_id, "" + 1);
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
+                    //CALL METHOD THAT CALLING API
+                    view_model.get_data(getContext(), getArguments().getString("id"));
+
+
+
                 }
             }
 
@@ -186,9 +172,11 @@ public class pay extends Fragment {
             Log.e("Tagbbb", data.getStringExtra(PaymentParams.TRANSACTION_ID));
             send_data.check_card(getContext(), "0");
 
-            //OPEN DIALOG
-            loading loading = new loading();
-            loading.dialog(getContext(), R.layout.successfull_payment, .80);
+            //SEND DATA TO FACTORY
+            PayModelView view_model = ViewModelProviders.of(this).get(PayModelView.class);
+
+            //CALL METHOD THAT CALLING API
+            view_model.get_data(getContext(), getArguments().getString("id"));
 
             if (data.hasExtra(PaymentParams.TOKEN) && !data.getStringExtra(PaymentParams.TOKEN).isEmpty()) {
                 Log.e("Tag", data.getStringExtra(PaymentParams.TOKEN));
@@ -199,5 +187,12 @@ public class pay extends Fragment {
         } else if (requestCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
             Toasty.error(getContext(), "Failed", Toasty.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        binding.paypal.setChecked(false);
+        binding.visa.setChecked(false);
     }
 }

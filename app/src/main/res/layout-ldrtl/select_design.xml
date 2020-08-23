@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".main_screen.ui.select_gift_design.ui.select_design">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".15"
+                    android:gravity="center|right"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:text="@string/select_a_design_for_nyour_gift"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/gift_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_weight=".7" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:layout_weight=".15"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="center|right">
+
+                        <ImageView
+                            android:id="@+id/back"
+                            android:layout_width="@dimen/_38sdp"
+                            android:layout_height="@dimen/_38sdp"
+                            android:layout_gravity="center|left"
+                            android:layout_marginRight="@dimen/_20sdp"
+                            android:background="@drawable/auth_button_bg"
+                            android:padding="@dimen/_9sdp"
+                            android:rotation="180"
+                            android:src="@drawable/back_one" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="center|right"
+                        android:paddingRight="@dimen/_15sdp">
+
+                        <Button
+                            android:id="@+id/next"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:background="@drawable/next_page"
+                            android:text="@string/add_to_cart"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/t_color" />
+
+    </RelativeLayout>
+</layout>

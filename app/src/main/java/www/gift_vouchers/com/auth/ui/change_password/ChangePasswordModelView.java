@@ -1,11 +1,7 @@
 package www.gift_vouchers.com.auth.ui.change_password;
 
-import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 
 import com.android.volley.VolleyError;
@@ -18,7 +14,6 @@ import www.gift_vouchers.com.NetworkLayer.NetworkInterface;
 import www.gift_vouchers.com.NetworkLayer.ResponseModel;
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.login.ui.login;
-import www.gift_vouchers.com.auth.ui.verfication_code.verfication_code;
 import www.gift_vouchers.com.utils.utils;
 
 public class ChangePasswordModelView extends ViewModel implements NetworkInterface {
@@ -30,12 +25,12 @@ public class ChangePasswordModelView extends ViewModel implements NetworkInterfa
         this.ForgetPasswordModelViewFactory = ForgetPasswordModelViewFactory;
     }
 
-    void get_data() {
+    void get_data(String email, String code, String password, String co_password) {
 
 
         //CALL API
-        new Apicalls(ForgetPasswordModelViewFactory.context, this).change_new_pass(ForgetPasswordModelViewFactory.code,
-                ForgetPasswordModelViewFactory.email, ForgetPasswordModelViewFactory.new_pass, ForgetPasswordModelViewFactory.new_pass);
+        new Apicalls(ForgetPasswordModelViewFactory.context, this).change_new_pass(email,
+                code, password, co_password);
 
 
     }
@@ -76,7 +71,7 @@ public class ChangePasswordModelView extends ViewModel implements NetworkInterfa
 
     @Override
     public void OnError(VolleyError error) {
-        Log.e("no_connection","no");
+        Log.e("no_connection", "no");
         new utils().dismiss_dialog(ForgetPasswordModelViewFactory.context);
     }
 

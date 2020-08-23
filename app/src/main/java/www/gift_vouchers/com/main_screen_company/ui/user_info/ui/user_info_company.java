@@ -1,20 +1,29 @@
 package www.gift_vouchers.com.main_screen_company.ui.user_info.ui;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import com.bumptech.glide.Glide;
 
 import www.gift_vouchers.com.R;
-import www.gift_vouchers.com.databinding.UserInfoBinding;
 import www.gift_vouchers.com.databinding.UserInfoCompanyBinding;
 import www.gift_vouchers.com.local_data.saved_data;
 import www.gift_vouchers.com.main_screen.ui.change_password.ui.change_password;
+import www.gift_vouchers.com.main_screen_company.ui.Main_Activity_Company;
 import www.gift_vouchers.com.utils.utils;
 
 import static www.gift_vouchers.com.utils.utils.yoyo;
@@ -24,6 +33,7 @@ import static www.gift_vouchers.com.utils.utils.yoyo;
  */
 public class user_info_company extends Fragment {
     UserInfoCompanyBinding binding;
+    int storage_premission_code = 1;
 
     public user_info_company() {
         // Required empty public constructor
@@ -38,10 +48,11 @@ public class user_info_company extends Fragment {
                 inflater, R.layout.user_info_company, container, false);
         View view = binding.getRoot();
 
-        //SET TEXT
+        //SET DATA
         binding.cardNum.setText(new saved_data().get_name(getContext()));
         binding.email.setText(new saved_data().get_email(getContext()));
         binding.phone.setText(new saved_data().get_phone(getContext()));
+        Glide.with(getContext()).load(new saved_data().get_picture(getContext())).into(binding.criImg);
 
 
         //CLiCK LISTNERS
@@ -68,7 +79,7 @@ public class user_info_company extends Fragment {
         binding.uploadImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new utils().upload_image(getContext(), 1);
+                grantedOrNot();
             }
         });
 
@@ -114,11 +125,46 @@ public class user_info_company extends Fragment {
                     //CALL METHOD THAT CALLING API
                     UserInfoModelView.get_data(binding.cardNum.getText().toString(),
                             binding.phone.getText().toString(), binding.email.getText().toString(), binding.gold.getText().toString(),
-                            binding.silver.getText().toString(), binding.platinum.getText().toString());
+                            binding.silver.getText().toString(), binding.platinum.getText().toString(), Main_Activity_Company.file);
                 }
 
 
             }
         });
+    }
+
+    //Premission
+    private void grantedOrNot() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            new AlertDialog.Builder(getContext()).setTitle("Premission To Open Gallery").setMessage("If you need to upload image you must do this premission").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                //positive
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, storage_premission_code);
+                }
+            }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    getActivity().startActivityForResult(Intent.createChooser(i, "Select Your Photo"), 1);
+                }
+            }).create().show();
+        } else {
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, storage_premission_code);
+        }
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == storage_premission_code) {
+
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(Intent.createChooser(i, "Select Your Photo"), 1);
+            } else {
+                Toast.makeText(getContext(), "not Granted", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

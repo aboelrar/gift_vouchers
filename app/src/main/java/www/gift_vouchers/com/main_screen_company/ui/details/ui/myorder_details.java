@@ -1,23 +1,19 @@
 package www.gift_vouchers.com.main_screen_company.ui.details.ui;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.bumptech.glide.Glide;
 
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.MyorderDetailsBinding;
-import www.gift_vouchers.com.main_screen.ui.details.ui.CompanyDetailsModelView;
-import www.gift_vouchers.com.main_screen.ui.details.ui.CompanyDetailsModelViewFactory;
-import www.gift_vouchers.com.main_screen.ui.details.ui.company_details;
 import www.gift_vouchers.com.main_screen_company.ui.details.model.myorder_company_detailsBody;
 import www.gift_vouchers.com.main_screen_company.ui.details.model.myorder_company_detailsCategory;
 import www.gift_vouchers.com.main_screen_company.ui.details.model.myorder_company_detailsCompany;
@@ -87,6 +83,13 @@ public class myorder_details extends Fragment {
                 binding.secPrice.setText(myorder_company_detailsBody.getTotalPrice());
                 binding.title.setText(myorder_company_detailsCompany.getUsername() + " " + getString(R.string.gift_voucher));
                 Glide.with(getContext()).load(myorder_company_detailsCompany.getPicture()).into(binding.logo);
+
+                //CHECK NOTES
+                if (myorder_company_detailsReceiver.getNotes() != null) {
+                    binding.notes.setText(myorder_company_detailsReceiver.getNotes());
+                    binding.noteV.setVisibility(View.VISIBLE);
+                }
+
             }
         });
     }

@@ -1,38 +1,34 @@
 package www.gift_vouchers.com.main_screen.ui;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.paytabs.paytabs_sdk.utils.PaymentParams;
 
 import java.io.File;
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.ActivityMainBinding;
+import www.gift_vouchers.com.local_data.saved_data;
 import www.gift_vouchers.com.main_screen.ui.cart.cart;
 import www.gift_vouchers.com.main_screen.ui.compainies.ui.compainies;
 import www.gift_vouchers.com.main_screen.ui.myorders.ui.myorders;
@@ -62,7 +58,13 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         mNavigationDrawerFragment.setup(R.id.fragment_drawer, binding.drawer);
 
         //GET DATA COMPAINIES
-        new utils().Replace_Fragment(new compainies(), R.id.frag, this);
+        Fragment home = new compainies();
+        Bundle bundle = new Bundle();
+        bundle.putString("search", "");
+        //set Fragmentclass Arguments
+        home.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frag, home).addToBackStack(null).commit();
 
         //CLICK LISTNERS
         click_listners();
@@ -80,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
 
         //CALL BROADCAST RECIEVER METHOD
         new regist_network_broadcast().registerNetworkBroadcastForNougat(MainActivity.this);
-
 
     }
 
@@ -102,16 +103,36 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
             }
         });
 
+        ImageView search = findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search_dialog search_dialog = new search_dialog();
+                search_dialog.dialog(MainActivity.this, R.layout.search_dialog, .95);
+            }
+        });
+
     }
+
+    int pos = 10;
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+
+
         if (position == 0) {
-            new utils().Replace_Fragment(new myorders(), R.id.frag, this);
+            if (new saved_data().get_login_status(MainActivity.this) == false) {
+                if (pos == 0) {
+                    Toasty.warning(MainActivity.this, getString(R.string.please_login), Toasty.LENGTH_SHORT).show();
+                }
+                pos = position;
+
+            } else {
+                new utils().Replace_Fragment(new myorders(), R.id.frag, this);
+            }
         } else if (position == 1) {
             new utils().Replace_Fragment(new settings(), R.id.frag, this);
         }
-
     }
 
     @Override
@@ -155,11 +176,27 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.home) {
-                    new utils().Replace_Fragment(new compainies(), R.id.frag, MainActivity.this); //HOME FRAGMENT
+                    //GET DATA COMPAINIES
+                    Fragment home = new compainies();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("search", "");
+                    //set Fragmentclass Arguments
+                    home.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frag, home).addToBackStack(null).commit();
                 } else if (item.getItemId() == R.id.person) {
-                    new utils().Replace_Fragment(new user_info(), R.id.frag, MainActivity.this); //HOME MESSAGES
+                    if (new saved_data().get_login_status(MainActivity.this) == false) {
+                        Toasty.warning(MainActivity.this, getString(R.string.please_login), Toasty.LENGTH_SHORT).show();
+                    } else {
+                        new utils().Replace_Fragment(new user_info(), R.id.frag, MainActivity.this); //HOME MESSAGES
+                    }
                 } else if (item.getItemId() == R.id.cart) {
-                    new utils().Replace_Fragment(new cart(), R.id.frag, MainActivity.this); //HOME MESSAGES
+                    if (new saved_data().get_login_status(MainActivity.this) == false) {
+                        Toasty.warning(MainActivity.this, getString(R.string.please_login), Toasty.LENGTH_SHORT).show();
+
+                    } else {
+                        new utils().Replace_Fragment(new cart(), R.id.frag, MainActivity.this); //HOME MESSAGES
+                    }
                 }
                 return true;
             }
@@ -199,10 +236,14 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
             if (requestCode == 1) {
                 Uri selectedImage = data.getData();
                 file = new File(getRealPathFromURI(selectedImage));
-                Toast.makeText(MainActivity.this, "sssss" + file, Toast.LENGTH_LONG).show();
-
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+
+                    user_info fragment_obj = (user_info) getSupportFragmentManager().
+                            findFragmentById(R.id.frag);
+                    ((CircleImageView) fragment_obj.getView().findViewById(R.id.cri_img)).setImageBitmap(bitmap);
+
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -217,5 +258,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
         return cursor.getString(idx);
     }
+
 
 }

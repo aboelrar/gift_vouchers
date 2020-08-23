@@ -1,30 +1,23 @@
 package www.gift_vouchers.com.auth.ui.signup.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import es.dmoral.toasty.Toasty;
-import www.gift_vouchers.com.NetworkLayer.Apicalls;
 import www.gift_vouchers.com.R;
-import www.gift_vouchers.com.auth.ui.login.ui.LoginModelView;
-import www.gift_vouchers.com.auth.ui.login.ui.LoginModelViewFactory;
 import www.gift_vouchers.com.auth.ui.login.ui.login;
-import www.gift_vouchers.com.databinding.LoginBinding;
 import www.gift_vouchers.com.databinding.SignupBinding;
-import www.gift_vouchers.com.main_screen.ui.MainActivity;
 import www.gift_vouchers.com.utils.utils;
 
 import static www.gift_vouchers.com.utils.utils.yoyo;
@@ -37,6 +30,7 @@ public class signup extends Fragment {
     SignupBinding binding;
     SignupModelView SignupModelView;
     String type = "0";
+    String tax = "0";
 
     public signup() {
         // Required empty public constructor
@@ -98,10 +92,13 @@ public class signup extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
                     type = "0";
+                    binding.tax.setVisibility(View.GONE);
                 } else if (i == 1) {
                     type = "3";
+                    binding.tax.setVisibility(View.GONE);
                 } else if (i == 2) {
                     type = "1";
+                    binding.tax.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -115,6 +112,8 @@ public class signup extends Fragment {
 
     //SIGN UP VAILDATION
     void signup_validation() {
+
+        tax = binding.tax.getText().toString();
 
         if (binding.username.getText().toString().length() < 3)  //VALIDATION ON USERNAME
         {
@@ -138,6 +137,8 @@ public class signup extends Fragment {
             yoyo(R.id.password, binding.password);
         } else if (type == "0") {
             Toasty.warning(getContext(), getString(R.string.check_type), Toasty.LENGTH_SHORT).show();
+        } else if ((type.equals("1")) && (tax.equals(""))) {
+            Toasty.warning(getContext(), getString(R.string.inset_commerical), Toasty.LENGTH_SHORT).show();
         } else {
 
             //CALL PROGRESS DIALOG
@@ -151,8 +152,7 @@ public class signup extends Fragment {
 
             //CALL METHOD THAT CALLING API
             SignupModelView.get_data(binding.username.getText().toString(), type, binding.phoneNumber.getText().toString(),
-                    binding.email.getText().toString(), binding.password.getText().toString(),
-
+                    binding.email.getText().toString(), binding.password.getText().toString(), tax,
                     "dd");
 
         }

@@ -9,6 +9,7 @@
     <string name="sign_up">Sign up</string>
     <string name="explore">Explore</string>
     <string name="e_mail">E-mail</string>
+    <string name="commercial_reg">Commercial Register</string>
     <string name="phone_number">Phone Number</string>
     <string name="loading_c">Loading...</string>
     <string name="get_voucher">Get Voucher</string>
@@ -94,6 +95,7 @@
     <string name="phone_val">Phone is too short!</string>
     <string name="address_val">Address is too short!</string>
     <string name="check_type">You must select type!</string>
+    <string name="inset_commerical">You must Insert Commercial Register</string>
     <string name="Passord_changed">password changed successfully</string>
     <string name="voucher_from">Gift Voucher From\n</string>
     <string name="about">About</string>
@@ -109,6 +111,20 @@
     <string name="please_type_new_password">Please type new password</string>
     <string name="change_password_a">Change Password</string>
     <string name="gift_voucher">Gift Voucher</string>
+    <string name="please_login">You must login!</string>
+    <string name="login">Login</string>
+    <string name="search_for_company">Search for company</string>
+    <string name="no_company_found">No Company Found</string>
+    <string name="no_orders_found">No Orders Found</string>
+    <string name="notes">Notes:</string>
+    <string name="forget_password">forget password</string>
+    <string name="get_the_most_popular_gift_vouchers">Get the most popular gift Vouchers</string>
+    <string name="price_must_be_less_than">Price must be less than 5000</string>
+    <string name="add_other_price">add other price</string>
+    <string name="all_most_done_please_fill_these_nfileds">All Most Done...Please Fill These\nFileds</string>
+    <string name="gift_voucher_s_v1_0_0">Gift Voucher\'s v1.0.0</string>
+    <string name="hi">hi,</string>
+    <string name="typeaaa">Type:</string>
 
 
 </resources>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".main_screen.ui.settings.settings">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".08"
+                android:paddingRight="@dimen/_15sdp"
+                android:text="@string/about_app"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight=".15"
+                android:src="@drawable/gift_voucher_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight=".08"
+                android:text="@string/gift_voucher_s_v1_0_0"
+                android:textSize="@dimen/_15sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".55"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".27"
+                    android:background="@drawable/about_gift_bg"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight=".83"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:text="@string/about_gift_voucher"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <ImageView
+                        android:id="@+id/about"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center|left"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight=".14"
+                        android:rotation="180"
+                        android:background="@drawable/auth_button_bg"
+                        android:padding="@dimen/_9sdp"
+                        android:src="@drawable/go_next_page" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".04" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".27"
+                    android:background="@drawable/terms_condition"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight=".83"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:text="@string/terms_amp_conditions"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <ImageView
+                        android:id="@+id/terms"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center|left"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight=".14"
+                        android:rotation="180"
+
+                        android:background="@drawable/auth_button_bg"
+                        android:padding="@dimen/_9sdp"
+                        android:src="@drawable/go_next_page" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".04" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".27"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".48"
+                        android:background="@drawable/faq"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight=".65"
+                            android:paddingLeft="@dimen/_15sdp"
+                            android:text="@string/faq"
+                            android:gravity="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <ImageView
+                            android:id="@+id/faq"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_34sdp"
+                            android:layout_gravity="center|left"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_weight=".3"
+                            android:rotation="180"
+                            android:background="@drawable/auth_button_bg"
+                            android:padding="@dimen/_9sdp"
+                            android:src="@drawable/go_next_page" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".04" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".48"
+                        android:background="@drawable/contact"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight=".65"
+                            android:paddingLeft="@dimen/_15sdp"
+                            android:text="@string/contact"
+                            android:gravity="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+
+                        <ImageView
+                            android:id="@+id/contact"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_34sdp"
+                            android:layout_gravity="center|left"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_weight=".3"
+                            android:rotation="180"
+                            android:background="@drawable/auth_button_bg"
+                            android:padding="@dimen/_9sdp"
+                            android:src="@drawable/go_next_page" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".1">
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center|left"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:background="@drawable/auth_button_bg"
+                android:padding="@dimen/_10sdp"
+                android:rotation="180"
+                android:src="@drawable/back_one" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

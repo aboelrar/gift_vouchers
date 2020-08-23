@@ -1,19 +1,15 @@
 package www.gift_vouchers.com.auth.ui.forget_pass.ui;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import www.gift_vouchers.com.R;
-import www.gift_vouchers.com.auth.ui.login.ui.LoginModelView;
-import www.gift_vouchers.com.auth.ui.login.ui.LoginModelViewFactory;
-import www.gift_vouchers.com.auth.ui.verfication_code.verfication_code;
 import www.gift_vouchers.com.databinding.ForgetPassBinding;
 import www.gift_vouchers.com.utils.utils;
 
@@ -60,7 +56,7 @@ public class forget_pass extends Fragment {
         {
             String email_val = getResources().getString(R.string.email_val);
             binding.email.setError(email_val);
-            yoyo(R.id.username, binding.email);
+            yoyo(R.id.email, binding.email);
         } else {
 
             //CALL PROGRESS DIALOG
@@ -71,8 +67,7 @@ public class forget_pass extends Fragment {
                     binding.email.getText().toString())).get(ForgetPasswordModelView.class);
 
             //CALL METHOD THAT CALLING API
-            ForgetPasswordModelView.get_data();
-
+            ForgetPasswordModelView.get_data(binding.email.getText().toString(), 2);
 
         }
     }

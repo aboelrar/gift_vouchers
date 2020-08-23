@@ -1,4 +1,4 @@
-package www.gift_vouchers.com.main_screen.ui.pay;
+package www.gift_vouchers.com.main_screen.ui.pay.ui;
 
 public class Config {
     public static String CLIENT_ID = "AdQh917Bn6uR8ZhbXDksThG5AA1aaOSYeTBhfemfhKzXHYkeIhb1txnp4d2h_5aTOAVS5sFGClz4dTs9";

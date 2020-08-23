@@ -13,11 +13,11 @@ public enum Apiclient {
      */
 
     LOGIN_USER("auth/login", Arrays.asList("email", "password")),
-    INSERT_USER("auth/signup", Arrays.asList("username", "password", "role", "phone", "email")),
+    INSERT_USER("auth/signup", Arrays.asList("username", "password", "role", "phone", "email", "tax")),
     FORGET_PASS("password/create", Arrays.asList("email")),
     CHANGE_PASS("password/change", Arrays.asList("old_password", "password", "password_confirmation")),
     RESET_PASS("Auth_general/reset_password", Arrays.asList("password", "code")),
-    COMPANIES("company/all", null),
+    COMPANIES("company/all?search=", null),
     COMPANY_DETAILS("company/get?id=", null),
     EDIT_PROFILE("profile", Arrays.asList("username", "phone", "email")),
     EDIT_PROFILE_CO("profile", Arrays.asList("username", "phone", "email", "gold", "silver", "bronze")),
@@ -27,7 +27,7 @@ public enum Apiclient {
     CHANGE_NEW_PASS("password/reset", Arrays.asList("code", "email", "password", "password_confirmation")),
     PROVINCE("order/my", null),
     COMPANIES_ORDER_DETAILS("order/get?id=", null),
-    WORK_SHOPS("industrial/work_shops", null),
+    FAQ("faq/get", null),
     INDUSTERIAL_SERVICES("industrial/industrial_services", Arrays.asList("car_model_id", "workShop_id", "province_id")),
     INDUSTERIAL_SERVICES_DETAILS("industrial/single_industrial_services", null),
     TWENTY_FOUR("live_services/live_services", null),
@@ -37,10 +37,10 @@ public enum Apiclient {
     HOMESERVICES_RATE("home_service/rate", Arrays.asList("rate", "comment")),
     REQUEST_WENCH("wench/looking_for_wench", Arrays.asList("location_lat", "location_lng", "location_address", "destination_lat", "destination_lng", "destination_address")),
     MY_ORDERS("order/my", null),
-    CONFIRM_ORDER("wench/confirm_order", null),
-    ACCEPT_REJECT_REQUEST("wench/change_status", Arrays.asList("status")),
+    CONFIRM_ORDER("order/pay", Arrays.asList("id")),
+    CONTACT_US("contact", Arrays.asList("message")),
     LANGUAGE("Auth_private/change_lang", Arrays.asList("lang")),
-    UPDATE_INVESTOR("update_investor?", Arrays.asList("id", "Name", "Email", "Password", "Age", "Gender", "Work", "Mobile", "Images")),
+    VERFIY_CODE("password/find/?code=", null),
     UPLOAD_CONSULTATION_FILES("upload-consultation-files", Arrays.asList("consultation_id", "images", "files"));
 
 

@@ -1,22 +1,16 @@
-package www.gift_vouchers.com.main_screen.ui.Checkout;
+package www.gift_vouchers.com.main_screen.ui.Checkout.ui;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.CheckOutBinding;
-import www.gift_vouchers.com.main_screen.ui.pay.pay;
-import www.gift_vouchers.com.main_screen.ui.select_gift_design.ui.select_design;
-import www.gift_vouchers.com.main_screen.ui.user_info.ui.UserInfoModelView;
-import www.gift_vouchers.com.main_screen.ui.user_info.ui.UserInfoModelViewFactory;
-import www.gift_vouchers.com.main_screen.ui.user_info.ui.user_info;
 import www.gift_vouchers.com.utils.utils;
 
 import static www.gift_vouchers.com.utils.utils.yoyo;

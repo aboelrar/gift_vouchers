@@ -35,6 +35,13 @@ public class saved_data {
         return email;
     }
 
+    //GET PICTURE
+    public String get_picture(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("personal_info", MODE_PRIVATE);
+        String picture = sharedPreferences.getString("image", "0");
+        return picture;
+    }
+
     //GET PHONE
     public String get_token(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("personal_info", MODE_PRIVATE);

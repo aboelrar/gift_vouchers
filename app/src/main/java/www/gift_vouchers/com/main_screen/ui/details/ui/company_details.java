@@ -2,19 +2,17 @@ package www.gift_vouchers.com.main_screen.ui.details.ui;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.addisonelliott.segmentedbutton.SegmentedButtonGroup;
 import com.bumptech.glide.Glide;
@@ -25,8 +23,10 @@ import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.CompanyDetailsBinding;
+import www.gift_vouchers.com.local_data.saved_data;
 import www.gift_vouchers.com.local_data.send_data;
 import www.gift_vouchers.com.main_screen.ui.details.model.CompaniniesDetailsBody;
 import www.gift_vouchers.com.main_screen.ui.details.model.CompaniniesDetailsCategory;
@@ -141,15 +141,21 @@ public class company_details extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        total_price = Integer.parseInt(type_price) + Integer.parseInt(price);
-                        //SET ALL DATA
-                        send_data.set_order_name(getContext(), companiniesDetailsBody.getUsername());
-                        send_data.price(getContext(), "" + total_price);
-                        send_data.cat_id(getContext(), cat_id);
-                        send_data.set_logo(getContext(), companiniesDetailsBody.getPicture().toString());
-                        send_data.set_type(getContext(), type);
+                        if (new saved_data().get_login_status(getContext()) == false) {
+                            Toasty.warning(getContext(), getString(R.string.please_login), Toasty.LENGTH_SHORT).show();
+                        } else if (Integer.parseInt(price) >= 5001) {
+                            Toasty.warning(getContext(), getString(R.string.price_must_be_less_than), Toasty.LENGTH_SHORT).show();
+                        } else {
+                            total_price = Integer.parseInt(type_price) + Integer.parseInt(price);
+                            //SET ALL DATA
+                            send_data.set_order_name(getContext(), companiniesDetailsBody.getUsername());
+                            send_data.price(getContext(), "" + total_price);
+                            send_data.cat_id(getContext(), cat_id);
+                            send_data.set_logo(getContext(), companiniesDetailsBody.getPicture().toString());
+                            send_data.set_type(getContext(), type);
 
-                        new utils().Replace_Fragment(new select_design(), R.id.frag, getContext());
+                            new utils().Replace_Fragment(new select_design(), R.id.frag, getContext());
+                        }
                     }
                 });
             }
@@ -163,7 +169,7 @@ public class company_details extends Fragment {
         cat_id = "" + ids.get(0).toString();
         type = getString(R.string.gold);
         type_price = arrayList.get(0).toString();
-        binding.giftType.setPosition(0,true);
+        binding.giftType.setPosition(0, true);
 
         binding.giftType.setOnPositionChangedListener(new SegmentedButtonGroup.OnPositionChangedListener() {
             @Override

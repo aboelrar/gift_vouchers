@@ -1,28 +1,36 @@
 package www.gift_vouchers.com.main_screen_company.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.File;
+import java.io.IOException;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.databinding.MainActivityCompanyBinding;
-import www.gift_vouchers.com.main_screen.ui.MainActivity;
 import www.gift_vouchers.com.main_screen.ui.NavigationDrawerCallbacks;
 import www.gift_vouchers.com.main_screen.ui.NavigationDrawerFragment;
 import www.gift_vouchers.com.main_screen.ui.cart.cart;
 import www.gift_vouchers.com.main_screen.ui.compainies.ui.compainies;
-import www.gift_vouchers.com.main_screen.ui.myorders.ui.myorders;
 import www.gift_vouchers.com.main_screen.ui.settings.settings;
 import www.gift_vouchers.com.main_screen.ui.user_info.ui.user_info;
 import www.gift_vouchers.com.main_screen_company.ui.my_orders_compant.ui.myorders_company;
@@ -36,6 +44,7 @@ public class Main_Activity_Company extends AppCompatActivity implements Navigati
     BottomNavigationView bottomNavigationView;
     ImageView settings;
     private NavigationDrawerFragment mNavigationDrawerFragment;
+    public static File file;
 
 
     @Override
@@ -157,5 +166,37 @@ public class Main_Activity_Company extends AppCompatActivity implements Navigati
             bottomNavigationView.setVisibility(View.GONE);
         }
 
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                Uri selectedImage = data.getData();
+                file = new File(getRealPathFromURI(selectedImage));
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+
+                    user_info_company fragment_obj = (user_info_company) getSupportFragmentManager().
+                            findFragmentById(R.id.frag);
+
+                            ((CircleImageView) fragment_obj.getView().findViewById(R.id.cri_img)).setImageBitmap(bitmap);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+    }
+
+    public String getRealPathFromURI(Uri uri) {
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+        return cursor.getString(idx);
     }
 }
