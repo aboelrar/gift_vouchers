@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "918112831705",
+    "firebase_url": "https://vouchers-b5ce3.firebaseio.com",
+    "project_id": "vouchers-b5ce3",
+    "storage_bucket": "vouchers-b5ce3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918112831705:android:f8b0fa2bf0df4f2033d6c8",
+        "android_client_info": {
+          "package_name": "www.gift_vouchers.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918112831705-n5tqbvdmlai2ubf3873sejee4daopvaf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "www.gift_vouchers.com",
+            "certificate_hash": "4cfc2c84c800fbac169ff251e1bbb3104e033db5"
+          }
+        },
+        {
+          "client_id": "918112831705-f0c07f91pu8gk617s74t93ag7f2r5q3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9AHTJSHVrvQDT_HaY6KO4S97KNAxEAos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918112831705-f0c07f91pu8gk617s74t93ag7f2r5q3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
