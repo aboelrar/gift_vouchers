@@ -77,10 +77,10 @@ public class myorder_details extends Fragment {
                 binding.to.setText(myorder_company_detailsReceiver.getUsername());
                 binding.title.setText(myorder_company_detailsReceiver.getUsername());
                 binding.code.setText(myorder_company_detailsBody.getOrderNumber());
-                binding.price.setText(myorder_company_detailsBody.getTotalPrice());
+                binding.price.setText(myorder_company_detailsBody.getPrice());
                 binding.phone.setText("" + myorder_company_detailsReceiver.getPhone());
                 binding.type.setText(myorder_company_detailsCategory.getCategory());
-                binding.secPrice.setText(myorder_company_detailsBody.getTotalPrice());
+                binding.secPrice.setText(myorder_company_detailsBody.getPrice());
                 binding.title.setText(myorder_company_detailsCompany.getUsername() + " " + getString(R.string.gift_voucher));
                 Glide.with(getContext()).load(myorder_company_detailsCompany.getPicture()).into(binding.logo);
 

@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.File;
@@ -78,11 +77,6 @@ public class Main_Activity_Company extends AppCompatActivity implements Navigati
                 mNavigationDrawerFragment.openDrawer(); //MENU OPEN DRAWER
             }
         });
-
-        //Glide images for backgrouns
-        Glide.with(Main_Activity_Company.this).load(R.drawable.masora).into(binding.topImg);
-        Glide.with(Main_Activity_Company.this).load(R.drawable.leftimg).into(binding.leftImg);
-        Glide.with(Main_Activity_Company.this).load(R.drawable.saroee).into(binding.rightImg);
 
     }
 

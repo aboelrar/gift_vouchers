@@ -96,7 +96,7 @@
     <string name="address_val">العنوان قصير جدا!</string>
     <string name="check_type">يجب ان تختار النوع!</string>
     <string name="Passord_changed">تم تغيير كلمة السر بنجاح</string>
-    <string name="voucher_from">Gift Voucher From\n</string>
+    <string name="voucher_from">قيفت فاوتشرز من\n</string>
     <string name="about">حول</string>
     <string name="delete_item">حذف</string>
     <string name="sure">هل انت متاكد من حذف هذا الطلب؟</string>
@@ -109,7 +109,7 @@
     <string name="cart_is_empty">السلة فارغه</string>
     <string name="please_type_new_password">من فضلك اختر كلمة سر جديدة</string>
     <string name="change_password_a">تغيير كلمة السر</string>
-    <string name="gift_voucher">Gift Voucher</string>
+    <string name="gift_voucher">قيفت فاوتشرز</string>
     <string name="please_login">يجب تسجبل الدخول!</string>
     <string name="login">تسجيل الدخول</string>
     <string name="search_for_company">البحث عن شركة</string>
@@ -124,8 +124,12 @@
     <string name="price_must_be_less_than">السعر يجب ان يكون اقل من 5000</string>
     <string name="commercial_reg">السجل التجارى</string>
     <string name="inset_commerical">من فضلك ادخل السجل التجارى</string>
-
-
+    <string name="to_complete_your_payment_you_must_press_on_pay_button">لإتمام الدفع يجب أن تضغط على زر الدفع</string>
+    <string name="total_amount_20">المبلغ الإجمالي :</string>
+    <string name="fill_data">تمت الاضافه بنجاح ... الرجاء ملء هذه \ n البيانات</string>
+    <string name="get_the_most_popular_gift_vouchers">احصل على قسائم الهدايا الأكثر شهرة</string>
+    <string name="price">السعر</string>
+    <string name="language">English</string>
 
 
 </resources>

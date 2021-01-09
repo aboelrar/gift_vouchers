@@ -1,2 +1,3 @@
 rootProject.name='gift_vouchers'
 include ':app', ':paytabs_sdk-v4.0.1'
+include ':tap_sdk'

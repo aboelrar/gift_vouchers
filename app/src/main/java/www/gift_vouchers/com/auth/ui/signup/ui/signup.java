@@ -20,6 +20,7 @@ import www.gift_vouchers.com.auth.ui.login.ui.login;
 import www.gift_vouchers.com.databinding.SignupBinding;
 import www.gift_vouchers.com.utils.utils;
 
+import static www.gift_vouchers.com.utils.utils.firebase_token;
 import static www.gift_vouchers.com.utils.utils.yoyo;
 
 /**
@@ -148,12 +149,12 @@ public class signup extends Fragment {
             SignupModelView = new ViewModelProvider(this, new SignupModelViewFactory(getContext(),
                     binding.username.getText().toString(), binding.password.getText().toString(),
                     binding.email.getText().toString(), binding.phoneNumber.getText().toString(),
-                    "dd", type)).get(SignupModelView.class);
+                    firebase_token(), type)).get(SignupModelView.class);
 
             //CALL METHOD THAT CALLING API
             SignupModelView.get_data(binding.username.getText().toString(), type, binding.phoneNumber.getText().toString(),
                     binding.email.getText().toString(), binding.password.getText().toString(), tax,
-                    "dd");
+                    firebase_token());
 
         }
     }

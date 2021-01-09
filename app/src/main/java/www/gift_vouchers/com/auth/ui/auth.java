@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.login.ui.login;
+import www.gift_vouchers.com.local_data.saved_data;
 import www.gift_vouchers.com.network_check_status.regist_network_broadcast;
 import www.gift_vouchers.com.utils.utils;
 
@@ -17,6 +18,9 @@ public class auth extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.auth);
+
+        //CHANGE LANGUAGE
+        new utils().set_language(new saved_data().get_lan(this), auth.this);
 
         //ADD LOGIN
         new utils().Replace_Fragment(new login(), R.id.frag, this);

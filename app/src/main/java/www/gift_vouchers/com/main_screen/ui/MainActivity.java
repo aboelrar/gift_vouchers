@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.File;
@@ -74,10 +73,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
 
         check_fragment_bottom_nav();
 
-        //Glide images for backgrouns
-        Glide.with(MainActivity.this).load(R.drawable.masora).into(binding.topImg);
-        Glide.with(MainActivity.this).load(R.drawable.leftimg).into(binding.leftImg);
-        Glide.with(MainActivity.this).load(R.drawable.saroee).into(binding.rightImg);
 
 
         //CALL BROADCAST RECIEVER METHOD
@@ -235,6 +230,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         if (resultCode == RESULT_OK) {
             if (requestCode == 1) {
                 Uri selectedImage = data.getData();
+
                 file = new File(getRealPathFromURI(selectedImage));
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
@@ -253,6 +249,8 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
     }
 
     public String getRealPathFromURI(Uri uri) {
+
+
         Cursor cursor = getContentResolver().query(uri, null, null, null, null);
         cursor.moveToFirst();
         int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);

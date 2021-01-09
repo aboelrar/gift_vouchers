@@ -21,7 +21,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -74,6 +73,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     CircleImageView cri_img;
     ImageView saroo, prize;
     TextView name;
+    TextView language;
 
 
     @Override
@@ -119,9 +119,13 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         saroo = view.findViewById(R.id.sarooh);
         prize = view.findViewById(R.id.prize);
         name = view.findViewById(R.id.name);
+        language = view.findViewById(R.id.language);
 
         //SET ON CLICK LISTNERS
         logout.setOnClickListener(this);
+
+        //SET ON CLICK LANGUAGE
+        language.setOnClickListener(this);
 
         //SET NAME TEXT
         name.setText(getString(R.string.hi) + new saved_data().get_name(getContext()));
@@ -130,6 +134,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         if (new saved_data().get_login_status(getContext()) == false) {
             logout.setText(getString(R.string.login));
         }
+
 
         //SET IMAGE
         Glide.with(getContext()).load(new saved_data().get_picture(getContext())).into(cri_img);
@@ -273,8 +278,19 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         if (v.getId() == R.id.logout) {
             send_data.login_status(getContext(), false); //ADD STATUS
             getContext().startActivity(new Intent(getContext(), auth.class));
+        } else if (v.getId() == R.id.language) {
+            if (new saved_data().get_lan(getContext()).equals("en")) {
+                send_data.send_lan(getContext(), "ar");
+            } else {
+                send_data.send_lan(getContext(), "en");
+            }
+            Intent i = new Intent(getContext(), auth.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
         }
+
     }
 }
+
 
 

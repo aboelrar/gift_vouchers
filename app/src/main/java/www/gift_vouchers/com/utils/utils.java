@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 
 
@@ -20,6 +21,9 @@ import androidx.fragment.app.Fragment;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.Locale;
 
@@ -160,6 +164,24 @@ public class utils {
                 .repeat(1)
                 .playOn(v.findViewById(id));
     }
+
+    /**
+     * @return TOKEN
+     */
+    static String token;
+
+    public static String firebase_token() {
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                token = instanceIdResult.getToken();
+                Log.e("token_is",token);
+                // send it to server
+            }
+        });
+        return token;
+    }
+
 
 
 

@@ -33,28 +33,41 @@
                     android:textSize="@dimen/_20sdp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_15sdp"
-                    android:text="@string/select_payment_method"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="@dimen/_15sdp"
-                    android:textStyle="bold" />
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp">
 
-                    <ImageView
-                        android:layout_width="@dimen/_35sdp"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="@dimen/_20sdp"
-                        android:layout_marginRight="@dimen/_50sdp"
-                        android:src="@drawable/paypal" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_100sdp"
+                        android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:text="To complete your payment you must press on pay button "
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:paddingLeft="@dimen/_15sdp"
+                            android:id="@+id/pay_tot"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
 
                     <ImageView
                         android:layout_width="@dimen/_35sdp"
@@ -62,37 +75,12 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="@dimen/_55sdp"
                         android:layout_marginRight="@dimen/_50sdp"
-                        android:src="@drawable/visa" />
+                        android:visibility="gone"
+                        android:src="@drawable/paypal" />
 
-                    <RadioGroup
-                        android:id="@+id/radiogroup"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_80sdp"
-                        android:layout_marginTop="@dimen/_15sdp">
 
-                        <RadioButton
-                            android:id="@+id/paypal"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:layout_marginRight="@dimen/_10sdp"
-                            android:layoutDirection="rtl"
-                            android:text="@string/apple_pay"
-                            android:textSize="@dimen/_18sdp"
-                            android:textStyle="bold" />
 
-                        <RadioButton
-                            android:id="@+id/visa"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:layout_marginRight="@dimen/_10sdp"
-                            android:layoutDirection="rtl"
-                            android:text="@string/visa_card"
-                            android:textSize="@dimen/_18sdp"
-                            android:textStyle="bold" />
 
-                    </RadioGroup>
                 </RelativeLayout>
 
 
@@ -121,6 +109,21 @@
                             android:padding="@dimen/_9sdp"
                             android:src="@drawable/back_one" />
 
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:gravity="center|left">
+
+                        <company.tap.gosellapi.open.buttons.PayButtonView
+                            android:id="@+id/payButtonId"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_alignParentBottom="true"/>
 
                     </LinearLayout>
 

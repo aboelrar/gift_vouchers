@@ -125,6 +125,11 @@
     <string name="gift_voucher_s_v1_0_0">Gift Voucher\'s v1.0.0</string>
     <string name="hi">hi,</string>
     <string name="typeaaa">Type:</string>
+    <string name="to_complete_your_payment_you_must_press_on_pay_button">To complete your payment you must press on pay button</string>
+    <string name="total_amount_20">Total Amount : </string>
+    <string name="fill_data">All Most Done...Please Fill These\nFileds</string>
+    <string name="price">price</string>
+    <string name="language">العربيه</string>
 
 
 </resources>

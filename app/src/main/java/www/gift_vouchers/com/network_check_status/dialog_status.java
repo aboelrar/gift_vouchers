@@ -26,7 +26,6 @@ public class dialog_status {
             tv_check_connection.setVisibility(View.VISIBLE);
 
 
-
             Handler handler = new Handler();
             Runnable delayrunnable = new Runnable() {
                 @Override

@@ -15,6 +15,8 @@ import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.auth.ui.auth;
 import www.gift_vouchers.com.welcome_screens.welcome_tour.pattern.viewimage;
 
+import static www.gift_vouchers.com.local_data.send_data.set_welcome_num;
+
 public class welcome_tour extends AppCompatActivity {
     TextView skip;
 
@@ -42,6 +44,7 @@ public class welcome_tour extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(welcome_tour.this, auth.class));
+                set_welcome_num(welcome_tour.this,"1");
             }
         });
 

@@ -43,7 +43,7 @@ public class compainies extends Fragment {
         getData();
 
         //SET USER NAME
-        binding.name.setText("Hi," + new saved_data().get_name(getContext()));
+        binding.name.setText(getString(R.string.hi) + new saved_data().get_name(getContext()));
 
         return view;
     }

@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:paddingRight="@dimen/_15sdp"
-                    android:text="All Most Done...Please Fill These\nFileds"
+                    android:text="@string/all_most_done_please_fill_these_nfileds"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="@dimen/_15sdp"
                     android:textStyle="bold" />
@@ -62,7 +62,7 @@
                     android:gravity="right|center"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/edittext_bg"
                     android:hint="@string/full_name"
                     android:paddingRight="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
@@ -76,7 +76,7 @@
                     android:gravity="center|right"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/edittext_bg"
                     android:hint="@string/e_mail_address"
                     android:paddingRight="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
@@ -91,7 +91,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:inputType="number"
-                    android:background="@android:color/white"
+                    android:background="@drawable/edittext_bg"
                     android:hint="@string/phone_number"
                     android:paddingRight="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
@@ -105,7 +105,7 @@
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/edittext_bg"
                     android:gravity="top|right"
                     android:paddingTop="@dimen/_15sdp"
                     android:hint="@string/write_a_congratulatory_message_if_you_want"

@@ -29,7 +29,7 @@ public class Apicalls {
 
     public void loginUser(final String email, final String pass, final String firebase_token) {
 
-        apiRouter.performRequest(Apiclient.LOGIN_USER.getURL(), Apiclient.LOGIN_USER.getParams(), Arrays.asList(email, pass), Request.Method.POST, 0);
+        apiRouter.performRequest(Apiclient.LOGIN_USER.getURL(), Apiclient.LOGIN_USER.getParams(), Arrays.asList(email, pass, firebase_token), Request.Method.POST, 0);
 
     }
 
@@ -58,7 +58,7 @@ public class Apicalls {
 
     public void insertUser(final String name, final String type, final String phone, final String email, final String password, String tax, final String firebase_token) {
 
-        apiRouter.performRequest(Apiclient.INSERT_USER.getURL(), Apiclient.INSERT_USER.getParams(), Arrays.asList(name, password, type, phone, email, tax), Request.Method.POST, 2);
+        apiRouter.performRequest(Apiclient.INSERT_USER.getURL(), Apiclient.INSERT_USER.getParams(), Arrays.asList(name, password, type, phone, email, tax, firebase_token), Request.Method.POST, 2);
 
     }
 
@@ -448,8 +448,12 @@ public class Apicalls {
 
     //----------------------------------------------------------------------------------------------
 
-    public void bill_amount(final String order_id, final String bill_amount) {
-
+    public void ContactUsInfo() {
+        try {
+            apiRouter.makeAdvancedRequest(Apiclient.GET_CONTACT_US_INFO.getURL(), Request.Method.GET, Apiclient.GET_CONTACT_US_INFO.getParams(), null, null);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 

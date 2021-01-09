@@ -12,8 +12,8 @@ public enum Apiclient {
      * ---> 2) ARRAY OF PARAMETERS KEYS
      */
 
-    LOGIN_USER("auth/login", Arrays.asList("email", "password")),
-    INSERT_USER("auth/signup", Arrays.asList("username", "password", "role", "phone", "email", "tax")),
+    LOGIN_USER("auth/login", Arrays.asList("email", "password","token")),
+    INSERT_USER("auth/signup", Arrays.asList("username", "password", "role", "phone", "email", "tax","token")),
     FORGET_PASS("password/create", Arrays.asList("email")),
     CHANGE_PASS("password/change", Arrays.asList("old_password", "password", "password_confirmation")),
     RESET_PASS("Auth_general/reset_password", Arrays.asList("password", "code")),
@@ -41,7 +41,7 @@ public enum Apiclient {
     CONTACT_US("contact", Arrays.asList("message")),
     LANGUAGE("Auth_private/change_lang", Arrays.asList("lang")),
     VERFIY_CODE("password/find/?code=", null),
-    UPLOAD_CONSULTATION_FILES("upload-consultation-files", Arrays.asList("consultation_id", "images", "files"));
+    GET_CONTACT_US_INFO("about/get", null);
 
 
     //--------------------------------------

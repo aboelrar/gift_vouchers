@@ -141,4 +141,11 @@ public class saved_data {
         return phone;
     }
 
+    //GET WELCOME NUM
+    public String get_welcome_num(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("welcome", MODE_PRIVATE);
+        String num = sharedPreferences.getString("num", "0");
+        return num;
+    }
+
 }

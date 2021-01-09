@@ -61,7 +61,7 @@
                     android:singleLine="true"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/edittext_bg"
                     android:hint="@string/full_name"
                     android:paddingLeft="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
@@ -74,7 +74,7 @@
                     android:singleLine="true"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/edittext_bg"
                     android:hint="@string/e_mail_address"
                     android:paddingLeft="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
@@ -88,7 +88,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:inputType="number"
-                    android:background="@android:color/white"
+                    android:background="@drawable/edittext_bg"
                     android:hint="@string/phone_number"
                     android:paddingLeft="@dimen/_7sdp"
                     android:textSize="@dimen/_12sdp" />
@@ -102,7 +102,7 @@
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:background="@android:color/white"
+                    android:background="@drawable/edittext_bg"
                     android:gravity="top"
                     android:paddingTop="@dimen/_15sdp"
                     android:hint="@string/write_a_congratulatory_message_if_you_want"

@@ -17,6 +17,7 @@ import www.gift_vouchers.com.databinding.LoginBinding;
 import www.gift_vouchers.com.main_screen.ui.MainActivity;
 import www.gift_vouchers.com.utils.utils;
 
+import static www.gift_vouchers.com.utils.utils.firebase_token;
 import static www.gift_vouchers.com.utils.utils.yoyo;
 
 /**
@@ -42,6 +43,9 @@ public class login extends Fragment {
 
         //CLICK ON BUTTONS
         click_listners();
+
+        //FIREBASE TOKEN
+        firebase_token();
 
 
         return view;
@@ -107,15 +111,16 @@ public class login extends Fragment {
 
             //SEND DATA TO FACTORY
             loginModelView = new ViewModelProvider(this, new LoginModelViewFactory(getContext(),
-                    binding.username.getText().toString(), binding.password.getText().toString(), "dd")).get(LoginModelView.class);
+                    binding.username.getText().toString(), binding.password.getText().toString(), firebase_token())).get(LoginModelView.class);
 
 
             //CALL METHOD THAT CALLING API
-            loginModelView.get_data(binding.username.getText().toString(), binding.password.getText().toString(), "dd");
+            loginModelView.get_data(binding.username.getText().toString(), binding.password.getText().toString(), firebase_token());
 
 
         }
     }
+
 
 
 }

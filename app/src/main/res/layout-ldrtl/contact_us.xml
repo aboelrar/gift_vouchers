@@ -93,7 +93,7 @@
                     android:drawablePadding="@dimen/_10sdp"
                     android:gravity="center|left"
                     android:paddingRight="@dimen/_10sdp"
-                    android:text="0110101010"
+                    android:id="@+id/phone"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_15sdp" />
 
@@ -104,8 +104,8 @@
                     android:drawableRight="@drawable/mail"
                     android:drawablePadding="@dimen/_10sdp"
                     android:gravity="center|left"
+                    android:id="@+id/mail"
                     android:paddingRight="@dimen/_5sdp"
-                    android:text="mail@melto.com"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_15sdp" />
 
@@ -115,9 +115,9 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:drawableRight="@drawable/address"
                     android:drawablePadding="@dimen/_10sdp"
+                    android:id="@+id/address"
                     android:gravity="center|left"
                     android:paddingRight="@dimen/_10sdp"
-                    android:text="st mohamed elfateh"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_15sdp" />
             </LinearLayout>

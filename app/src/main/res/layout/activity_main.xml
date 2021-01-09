@@ -16,6 +16,7 @@
         tools:context=".main_screen.ui.MainActivity">
 
         <RelativeLayout
+            android:background="@drawable/main_screen"
             android:id="@+id/img_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

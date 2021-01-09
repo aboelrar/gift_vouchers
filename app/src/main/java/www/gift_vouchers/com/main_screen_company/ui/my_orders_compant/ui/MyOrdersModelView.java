@@ -15,11 +15,9 @@ import java.util.ArrayList;
 import www.gift_vouchers.com.NetworkLayer.Apicalls;
 import www.gift_vouchers.com.NetworkLayer.NetworkInterface;
 import www.gift_vouchers.com.NetworkLayer.ResponseModel;
-import www.gift_vouchers.com.R;
 import www.gift_vouchers.com.main_screen.ui.myorders.model.UserOrdersBody;
 import www.gift_vouchers.com.main_screen.ui.myorders.model.UserOrdersCategory;
 import www.gift_vouchers.com.main_screen.ui.myorders.model.UserOrdersCompany;
-import www.gift_vouchers.com.main_screen.ui.myorders.model.UserOrdersReceiver;
 import www.gift_vouchers.com.main_screen.ui.myorders.model.UserOrdersRootClass;
 import www.gift_vouchers.com.main_screen_company.ui.my_orders_compant.model.my_order_list;
 
@@ -76,7 +74,7 @@ public class MyOrdersModelView extends ViewModel implements NetworkInterface {
 
             arrayList.add(new my_order_list("" + UserOrdersBody[index].getId(),
                     UserOrdersCompany.getPicture(), UserOrdersReceiver.getUsername(),
-                    UserOrdersBody[index].getOrderNumber(), UserOrdersBody[index].getTotalPrice()));
+                    UserOrdersBody[index].getOrderNumber(), UserOrdersBody[index].getPrice()));
         }
 
         //SET DATA IN MULTI LIVE DATA

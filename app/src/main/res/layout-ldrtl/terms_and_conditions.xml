@@ -82,15 +82,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight=".7">
-
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_20sdp"
                         android:justificationMode="inter_word"
                         android:paddingLeft="@dimen/_20sdp"
-                        android:text="Souq.com is an English-Arabic language e-commerce platform, owned by Amazon, Inc.[3] It is the largest e-commerce platform in the Arab world.[4] On March 28, 2017, Amazon.com Inc. confirmed it would be acquiring Souq.com for $580 million.[5] On May 1, 2019, Souq.com UAE became known as Amazon.ae,[6] whilst the Saudi and Egyptian sites continue operating under the Souq.com brand."
+                        android:id="@+id/terms"
                         android:textSize="@dimen/_13sdp" />
+                        <ProgressBar
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:id="@+id/progrssbar"
+                            android:layout_centerInParent="true"/>
+                    </RelativeLayout>
                 </androidx.core.widget.NestedScrollView>
 
             </LinearLayout>
